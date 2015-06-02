@@ -13,6 +13,7 @@
 		A773E4A11B1D5CA30038D718 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A773E4A01B1D5CA30038D718 /* StringExtension.swift */; };
 		A77E85C81B1D8BAB00066B0A /* DatePickerCell in Resources */ = {isa = PBXBuildFile; fileRef = A77E85C61B1D8BAB00066B0A /* DatePickerCell */; };
 		A77E85C91B1D8BAB00066B0A /* Realm in Resources */ = {isa = PBXBuildFile; fileRef = A77E85C71B1D8BAB00066B0A /* Realm */; };
+		A77E85CE1B1D8CF800066B0A /* RJInitialSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77E85CD1B1D8CF800066B0A /* RJInitialSettings.swift */; };
 		A7D0934A1B146DBD003C1EBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D093491B146DBD003C1EBE /* AppDelegate.swift */; };
 		A7D0934D1B146DBD003C1EBE /* LastCigarette.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A7D0934B1B146DBD003C1EBE /* LastCigarette.xcdatamodeld */; };
 		A7D093541B146DBD003C1EBE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7D093531B146DBD003C1EBE /* Images.xcassets */; };
@@ -54,6 +55,7 @@
 		A773E4A01B1D5CA30038D718 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		A77E85C61B1D8BAB00066B0A /* DatePickerCell */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DatePickerCell; path = Frameworks/DatePickerCell; sourceTree = "<group>"; };
 		A77E85C71B1D8BAB00066B0A /* Realm */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Realm; path = Frameworks/Realm; sourceTree = "<group>"; };
+		A77E85CD1B1D8CF800066B0A /* RJInitialSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RJInitialSettings.swift; path = Singletons/RJInitialSettings.swift; sourceTree = "<group>"; };
 		A7D093441B146DBD003C1EBE /* LastCigarette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LastCigarette.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7D093481B146DBD003C1EBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7D093491B146DBD003C1EBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A77E85CF1B1D8D1400066B0A /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				A77E85CD1B1D8CF800066B0A /* RJInitialSettings.swift */,
+			);
+			name = Singletons;
+			sourceTree = "<group>";
+		};
 		A7D0933B1B146DBD003C1EBE = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +130,7 @@
 				A7D093531B146DBD003C1EBE /* Images.xcassets */,
 				A7D093551B146DBD003C1EBE /* LaunchScreen.xib */,
 				A7D0934B1B146DBD003C1EBE /* LastCigarette.xcdatamodeld */,
+				A77E85CF1B1D8D1400066B0A /* Singletons */,
 				A7D093471B146DBD003C1EBE /* Supporting Files */,
 				A7D093721B146EB3003C1EBE /* Frameworks */,
 			);
@@ -272,6 +283,7 @@
 				A7D0934D1B146DBD003C1EBE /* LastCigarette.xcdatamodeld in Sources */,
 				A773E49F1B1D5B7C0038D718 /* Cigarette.swift in Sources */,
 				A7D0934A1B146DBD003C1EBE /* AppDelegate.swift in Sources */,
+				A77E85CE1B1D8CF800066B0A /* RJInitialSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

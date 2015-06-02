@@ -18,41 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let realm = Realm()
-        
-        var rootViewController : UIViewController;
-        var results = realm.objects(Cigarette)
-        
-        if defaults.boolForKey("HasBeenLaunched") {
-            //not first time launched
-            rootViewController = storyboard.instantiateViewControllerWithIdentifier("MainStoryboard") as! UIViewController
-        } else {
-            //first time launched
-            //set values in info.plist
-            defaults.setBool(true, forKey: "HasBeenLaunched")
-            defaults.synchronize()
-
-            //realm file not present (first time opened)
-            rootViewController = storyboard.instantiateViewControllerWithIdentifier("IntroStoryboard") as! UIViewController
-            
-            var cigarette = Cigarette()
-            cigarette.id = "1"
-            cigarette.quitDate = NSDate()
-            cigarette.smokedPerDay = 0
-            cigarette.costPerPack = 0.0
-            cigarette.cigarettesPerPack = 0
-            cigarette.currency = "$"
-            
-            // Save initial object
-            realm.beginWrite()
-            realm.add(cigarette)
-            realm.commitWrite()
-        }
-        
-        self.window?.rootViewController = rootViewController;
-        self.window?.makeKeyAndVisible();
+        var initialViewController: UIViewController = checkInitialLaunch()
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
         
         return true
     }
