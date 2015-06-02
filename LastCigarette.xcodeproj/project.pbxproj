@@ -7,13 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A75C1D001B172F70008B3956 /* RJCostPerPackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75C1CFF1B172F6F008B3956 /* RJCostPerPackTableViewController.swift */; };
+		A75C1D041B1735E7008B3956 /* RJNumberOfCigarettesPerPackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75C1D031B1735E7008B3956 /* RJNumberOfCigarettesPerPackTableViewController.swift */; };
+		A773E49F1B1D5B7C0038D718 /* Cigarette.swift in Sources */ = {isa = PBXBuildFile; fileRef = A773E49E1B1D5B7C0038D718 /* Cigarette.swift */; };
+		A773E4A11B1D5CA30038D718 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A773E4A01B1D5CA30038D718 /* StringExtension.swift */; };
+		A77E85C81B1D8BAB00066B0A /* DatePickerCell in Resources */ = {isa = PBXBuildFile; fileRef = A77E85C61B1D8BAB00066B0A /* DatePickerCell */; };
+		A77E85C91B1D8BAB00066B0A /* Realm in Resources */ = {isa = PBXBuildFile; fileRef = A77E85C71B1D8BAB00066B0A /* Realm */; };
 		A7D0934A1B146DBD003C1EBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D093491B146DBD003C1EBE /* AppDelegate.swift */; };
 		A7D0934D1B146DBD003C1EBE /* LastCigarette.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A7D0934B1B146DBD003C1EBE /* LastCigarette.xcdatamodeld */; };
-		A7D0934F1B146DBD003C1EBE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D0934E1B146DBD003C1EBE /* ViewController.swift */; };
-		A7D093521B146DBD003C1EBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7D093501B146DBD003C1EBE /* Main.storyboard */; };
 		A7D093541B146DBD003C1EBE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7D093531B146DBD003C1EBE /* Images.xcassets */; };
 		A7D093571B146DBD003C1EBE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7D093551B146DBD003C1EBE /* LaunchScreen.xib */; };
 		A7D093631B146DBD003C1EBE /* LastCigaretteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D093621B146DBD003C1EBE /* LastCigaretteTests.swift */; };
+		A7D0936E1B146DFD003C1EBE /* RJLastCigaretteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D0936C1B146DFD003C1EBE /* RJLastCigaretteViewController.swift */; };
+		A7D0936F1B146DFD003C1EBE /* RJSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D0936D1B146DFD003C1EBE /* RJSettingsViewController.swift */; };
+		A7D093711B146E33003C1EBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7D093701B146E33003C1EBE /* Main.storyboard */; };
+		A7D093791B159EAD003C1EBE /* RJIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D093781B159EAD003C1EBE /* RJIntroViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,18 +34,39 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A7D093771B146ED1003C1EBE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		A75C1CFF1B172F6F008B3956 /* RJCostPerPackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RJCostPerPackTableViewController.swift; sourceTree = "<group>"; };
+		A75C1D031B1735E7008B3956 /* RJNumberOfCigarettesPerPackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RJNumberOfCigarettesPerPackTableViewController.swift; sourceTree = "<group>"; };
+		A773E49E1B1D5B7C0038D718 /* Cigarette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cigarette.swift; sourceTree = "<group>"; };
+		A773E4A01B1D5CA30038D718 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		A77E85C61B1D8BAB00066B0A /* DatePickerCell */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DatePickerCell; path = Frameworks/DatePickerCell; sourceTree = "<group>"; };
+		A77E85C71B1D8BAB00066B0A /* Realm */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Realm; path = Frameworks/Realm; sourceTree = "<group>"; };
 		A7D093441B146DBD003C1EBE /* LastCigarette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LastCigarette.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7D093481B146DBD003C1EBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7D093491B146DBD003C1EBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7D0934C1B146DBD003C1EBE /* LastCigarette.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LastCigarette.xcdatamodel; sourceTree = "<group>"; };
-		A7D0934E1B146DBD003C1EBE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A7D093511B146DBD003C1EBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A7D093531B146DBD003C1EBE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A7D093561B146DBD003C1EBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A7D0935C1B146DBD003C1EBE /* LastCigaretteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LastCigaretteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7D093611B146DBD003C1EBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7D093621B146DBD003C1EBE /* LastCigaretteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastCigaretteTests.swift; sourceTree = "<group>"; };
+		A7D0936C1B146DFD003C1EBE /* RJLastCigaretteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RJLastCigaretteViewController.swift; sourceTree = "<group>"; };
+		A7D0936D1B146DFD003C1EBE /* RJSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RJSettingsViewController.swift; sourceTree = "<group>"; };
+		A7D093701B146E33003C1EBE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		A7D093781B159EAD003C1EBE /* RJIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RJIntroViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,12 +109,19 @@
 			isa = PBXGroup;
 			children = (
 				A7D093491B146DBD003C1EBE /* AppDelegate.swift */,
-				A7D0934E1B146DBD003C1EBE /* ViewController.swift */,
-				A7D093501B146DBD003C1EBE /* Main.storyboard */,
+				A7D0936C1B146DFD003C1EBE /* RJLastCigaretteViewController.swift */,
+				A7D093781B159EAD003C1EBE /* RJIntroViewController.swift */,
+				A7D0936D1B146DFD003C1EBE /* RJSettingsViewController.swift */,
+				A75C1CFF1B172F6F008B3956 /* RJCostPerPackTableViewController.swift */,
+				A75C1D031B1735E7008B3956 /* RJNumberOfCigarettesPerPackTableViewController.swift */,
+				A773E49E1B1D5B7C0038D718 /* Cigarette.swift */,
+				A773E4A01B1D5CA30038D718 /* StringExtension.swift */,
+				A7D093701B146E33003C1EBE /* Main.storyboard */,
 				A7D093531B146DBD003C1EBE /* Images.xcassets */,
 				A7D093551B146DBD003C1EBE /* LaunchScreen.xib */,
 				A7D0934B1B146DBD003C1EBE /* LastCigarette.xcdatamodeld */,
 				A7D093471B146DBD003C1EBE /* Supporting Files */,
+				A7D093721B146EB3003C1EBE /* Frameworks */,
 			);
 			path = LastCigarette;
 			sourceTree = "<group>";
@@ -115,6 +151,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A7D093721B146EB3003C1EBE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A77E85C61B1D8BAB00066B0A /* DatePickerCell */,
+				A77E85C71B1D8BAB00066B0A /* Realm */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -125,6 +170,7 @@
 				A7D093401B146DBD003C1EBE /* Sources */,
 				A7D093411B146DBD003C1EBE /* Frameworks */,
 				A7D093421B146DBD003C1EBE /* Resources */,
+				A7D093771B146ED1003C1EBE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -195,9 +241,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7D093521B146DBD003C1EBE /* Main.storyboard in Resources */,
+				A7D093711B146E33003C1EBE /* Main.storyboard in Resources */,
 				A7D093571B146DBD003C1EBE /* LaunchScreen.xib in Resources */,
+				A77E85C81B1D8BAB00066B0A /* DatePickerCell in Resources */,
 				A7D093541B146DBD003C1EBE /* Images.xcassets in Resources */,
+				A77E85C91B1D8BAB00066B0A /* Realm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,8 +263,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7D0934F1B146DBD003C1EBE /* ViewController.swift in Sources */,
+				A7D0936E1B146DFD003C1EBE /* RJLastCigaretteViewController.swift in Sources */,
+				A75C1D001B172F70008B3956 /* RJCostPerPackTableViewController.swift in Sources */,
+				A7D093791B159EAD003C1EBE /* RJIntroViewController.swift in Sources */,
+				A7D0936F1B146DFD003C1EBE /* RJSettingsViewController.swift in Sources */,
+				A75C1D041B1735E7008B3956 /* RJNumberOfCigarettesPerPackTableViewController.swift in Sources */,
+				A773E4A11B1D5CA30038D718 /* StringExtension.swift in Sources */,
 				A7D0934D1B146DBD003C1EBE /* LastCigarette.xcdatamodeld in Sources */,
+				A773E49F1B1D5B7C0038D718 /* Cigarette.swift in Sources */,
 				A7D0934A1B146DBD003C1EBE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,14 +294,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A7D093501B146DBD003C1EBE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A7D093511B146DBD003C1EBE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A7D093551B146DBD003C1EBE /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -344,6 +390,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LastCigarette/Frameworks",
+					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm/RealmSwift.framework/Frameworks",
+					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm",
+				);
 				INFOPLIST_FILE = LastCigarette/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -354,6 +406,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LastCigarette/Frameworks",
+					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm/RealmSwift.framework/Frameworks",
+					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm",
+				);
 				INFOPLIST_FILE = LastCigarette/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -413,6 +471,7 @@
 				A7D093681B146DBD003C1EBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A7D093691B146DBD003C1EBE /* Build configuration list for PBXNativeTarget "LastCigaretteTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +480,7 @@
 				A7D0936B1B146DBD003C1EBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -13,8 +13,8 @@ import RealmSwift
 class RJLastCigaretteViewController: UIViewController {
     
     var timer = NSTimer()
-    var startDate: String = ""
-    var costPerPack: Float = 0, cigarettesPerPack: Int = 0, smokedPerDay: Int = 0
+    var quitDate: String = ""
+    var costPerPack: Float = 0, cigarettesPerPack: Int = 0, smokedPerDay: Int = 0, currency = ""
     
     @IBOutlet weak var labelYears: UILabel!
     @IBOutlet weak var labelWeeks: UILabel!
@@ -29,15 +29,20 @@ class RJLastCigaretteViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //get all variables
-        self.startDate = "2010-12-03 10:33:00"
-        self.costPerPack = 25.00
-        self.cigarettesPerPack = 20
-        self.smokedPerDay = 18
-        
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("calculateAndUpdate"), userInfo: nil, repeats: true) //animate per second
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        //get details
+        let realm = Realm()
+        let predicate = NSPredicate(format: "id = %@", "1")
+        var cigarette = realm.objects(Cigarette).filter(predicate)
         
-        //animate
+        self.quitDate = "2010-12-03 10:33:00"
+        self.smokedPerDay = cigarette[0].smokedPerDay
+        self.costPerPack = cigarette[0].costPerPack
+        self.cigarettesPerPack = cigarette[0].cigarettesPerPack
+        self.currency = cigarette[0].currency
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,7 +55,7 @@ class RJLastCigaretteViewController: UIViewController {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" //set format and locale
 
         let date = NSDate(); //current UTC time
-        let convertedDate:NSDate = dateFormatter.dateFromString(self.startDate)!
+        let convertedDate:NSDate = dateFormatter.dateFromString(self.quitDate)!
         let secondsInYear = 31536000, secondsInWeek = 604800, secondsInDay = 86400, secondsInHour = 3600, secondsInMinute = 60
 
         var elapsedTime = NSDate().timeIntervalSinceDate(convertedDate) //get the interval in seconds between the 2 dates
@@ -90,7 +95,9 @@ class RJLastCigaretteViewController: UIViewController {
         
         //calculate total costs
         costUntilToday = costPerSecond * Float(elapsedTime) //calculate total costs until today
-        labelSaved.text = String(format: "$%.2f", costUntilToday)
+        var numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        labelSaved.text = self.currency + numberFormatter.stringFromNumber(costUntilToday)!
         
         //calculate total cigarettes
         cigarettesUntilToday = (Float(self.smokedPerDay) / Float(secondsInDay)) * Float(elapsedTime)
