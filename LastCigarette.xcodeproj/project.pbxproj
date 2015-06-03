@@ -10,11 +10,19 @@
 		A75C1D001B172F70008B3956 /* RJCostPerPackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75C1CFF1B172F6F008B3956 /* RJCostPerPackTableViewController.swift */; };
 		A75C1D041B1735E7008B3956 /* RJNumberOfCigarettesPerPackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75C1D031B1735E7008B3956 /* RJNumberOfCigarettesPerPackTableViewController.swift */; };
 		A773E49F1B1D5B7C0038D718 /* Cigarette.swift in Sources */ = {isa = PBXBuildFile; fileRef = A773E49E1B1D5B7C0038D718 /* Cigarette.swift */; };
-		A773E4A11B1D5CA30038D718 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A773E4A01B1D5CA30038D718 /* StringExtension.swift */; };
 		A77E85CE1B1D8CF800066B0A /* RJInitialSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77E85CD1B1D8CF800066B0A /* RJInitialSettings.swift */; };
 		A77E85EC1B1D9B2E00066B0A /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A77E85EB1B1D9B2E00066B0A /* RealmSwift.framework */; };
 		A77E85ED1B1D9B4E00066B0A /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A77E85EB1B1D9B2E00066B0A /* RealmSwift.framework */; };
 		A77E85EE1B1D9B4E00066B0A /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A77E85EB1B1D9B2E00066B0A /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A77E87CA1B1EC9BC00066B0A /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77E87C91B1EC9BC00066B0A /* StringExtension.swift */; };
+		A77E88351B1EE3E200066B0A /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A77E88241B1EE3E200066B0A /* AbstractActionSheetPicker.m */; };
+		A77E88361B1EE3E200066B0A /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A77E88261B1EE3E200066B0A /* ActionSheetCustomPicker.m */; };
+		A77E88371B1EE3E200066B0A /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A77E88291B1EE3E200066B0A /* ActionSheetDatePicker.m */; };
+		A77E88381B1EE3E200066B0A /* ActionSheetDistancePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A77E882B1B1EE3E200066B0A /* ActionSheetDistancePicker.m */; };
+		A77E88391B1EE3E200066B0A /* ActionSheetLocalePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A77E882D1B1EE3E200066B0A /* ActionSheetLocalePicker.m */; };
+		A77E883A1B1EE3E200066B0A /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A77E88301B1EE3E200066B0A /* ActionSheetStringPicker.m */; };
+		A77E883B1B1EE3E200066B0A /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A77E88321B1EE3E200066B0A /* DistancePickerView.m */; };
+		A77E883C1B1EE3E200066B0A /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A77E88341B1EE3E200066B0A /* SWActionSheet.m */; };
 		A7D0934A1B146DBD003C1EBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D093491B146DBD003C1EBE /* AppDelegate.swift */; };
 		A7D0934D1B146DBD003C1EBE /* LastCigarette.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A7D0934B1B146DBD003C1EBE /* LastCigarette.xcdatamodeld */; };
 		A7D093541B146DBD003C1EBE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7D093531B146DBD003C1EBE /* Images.xcassets */; };
@@ -54,9 +62,29 @@
 		A75C1CFF1B172F6F008B3956 /* RJCostPerPackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RJCostPerPackTableViewController.swift; sourceTree = "<group>"; };
 		A75C1D031B1735E7008B3956 /* RJNumberOfCigarettesPerPackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RJNumberOfCigarettesPerPackTableViewController.swift; sourceTree = "<group>"; };
 		A773E49E1B1D5B7C0038D718 /* Cigarette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cigarette.swift; sourceTree = "<group>"; };
-		A773E4A01B1D5CA30038D718 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = ../StringExtension.swift; sourceTree = "<group>"; };
 		A77E85CD1B1D8CF800066B0A /* RJInitialSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RJInitialSettings.swift; path = Singletons/RJInitialSettings.swift; sourceTree = "<group>"; };
 		A77E85EB1B1D9B2E00066B0A /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		A77E87C91B1EC9BC00066B0A /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		A77E88211B1EE3E200066B0A /* CoreActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreActionSheetPicker.h; sourceTree = "<group>"; };
+		A77E88231B1EE3E200066B0A /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
+		A77E88241B1EE3E200066B0A /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
+		A77E88251B1EE3E200066B0A /* ActionSheetCustomPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPicker.h; sourceTree = "<group>"; };
+		A77E88261B1EE3E200066B0A /* ActionSheetCustomPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetCustomPicker.m; sourceTree = "<group>"; };
+		A77E88271B1EE3E200066B0A /* ActionSheetCustomPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPickerDelegate.h; sourceTree = "<group>"; };
+		A77E88281B1EE3E200066B0A /* ActionSheetDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDatePicker.h; sourceTree = "<group>"; };
+		A77E88291B1EE3E200066B0A /* ActionSheetDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDatePicker.m; sourceTree = "<group>"; };
+		A77E882A1B1EE3E200066B0A /* ActionSheetDistancePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDistancePicker.h; sourceTree = "<group>"; };
+		A77E882B1B1EE3E200066B0A /* ActionSheetDistancePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDistancePicker.m; sourceTree = "<group>"; };
+		A77E882C1B1EE3E200066B0A /* ActionSheetLocalePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetLocalePicker.h; sourceTree = "<group>"; };
+		A77E882D1B1EE3E200066B0A /* ActionSheetLocalePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetLocalePicker.m; sourceTree = "<group>"; };
+		A77E882E1B1EE3E200066B0A /* ActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetPicker.h; sourceTree = "<group>"; };
+		A77E882F1B1EE3E200066B0A /* ActionSheetStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetStringPicker.h; sourceTree = "<group>"; };
+		A77E88301B1EE3E200066B0A /* ActionSheetStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetStringPicker.m; sourceTree = "<group>"; };
+		A77E88311B1EE3E200066B0A /* DistancePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistancePickerView.h; sourceTree = "<group>"; };
+		A77E88321B1EE3E200066B0A /* DistancePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePickerView.m; sourceTree = "<group>"; };
+		A77E88331B1EE3E200066B0A /* SWActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWActionSheet.h; sourceTree = "<group>"; };
+		A77E88341B1EE3E200066B0A /* SWActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWActionSheet.m; sourceTree = "<group>"; };
+		A77E883E1B1EE43E00066B0A /* LastCigarette-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LastCigarette-Bridging-Header.h"; sourceTree = "<group>"; };
 		A7D093441B146DBD003C1EBE /* LastCigarette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LastCigarette.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7D093481B146DBD003C1EBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7D093491B146DBD003C1EBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,7 +131,9 @@
 		A77E85E11B1D954400066B0A /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				A773E4A01B1D5CA30038D718 /* StringExtension.swift */,
+				A77E883E1B1EE43E00066B0A /* LastCigarette-Bridging-Header.h */,
+				A77E88201B1EE3E200066B0A /* ActionSheetPicker */,
+				A77E87C91B1EC9BC00066B0A /* StringExtension.swift */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -122,6 +152,40 @@
 				A77E85EB1B1D9B2E00066B0A /* RealmSwift.framework */,
 			);
 			path = Realm;
+			sourceTree = "<group>";
+		};
+		A77E88201B1EE3E200066B0A /* ActionSheetPicker */ = {
+			isa = PBXGroup;
+			children = (
+				A77E88211B1EE3E200066B0A /* CoreActionSheetPicker.h */,
+				A77E88221B1EE3E200066B0A /* Pickers */,
+			);
+			path = ActionSheetPicker;
+			sourceTree = "<group>";
+		};
+		A77E88221B1EE3E200066B0A /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				A77E88231B1EE3E200066B0A /* AbstractActionSheetPicker.h */,
+				A77E88241B1EE3E200066B0A /* AbstractActionSheetPicker.m */,
+				A77E88251B1EE3E200066B0A /* ActionSheetCustomPicker.h */,
+				A77E88261B1EE3E200066B0A /* ActionSheetCustomPicker.m */,
+				A77E88271B1EE3E200066B0A /* ActionSheetCustomPickerDelegate.h */,
+				A77E88281B1EE3E200066B0A /* ActionSheetDatePicker.h */,
+				A77E88291B1EE3E200066B0A /* ActionSheetDatePicker.m */,
+				A77E882A1B1EE3E200066B0A /* ActionSheetDistancePicker.h */,
+				A77E882B1B1EE3E200066B0A /* ActionSheetDistancePicker.m */,
+				A77E882C1B1EE3E200066B0A /* ActionSheetLocalePicker.h */,
+				A77E882D1B1EE3E200066B0A /* ActionSheetLocalePicker.m */,
+				A77E882E1B1EE3E200066B0A /* ActionSheetPicker.h */,
+				A77E882F1B1EE3E200066B0A /* ActionSheetStringPicker.h */,
+				A77E88301B1EE3E200066B0A /* ActionSheetStringPicker.m */,
+				A77E88311B1EE3E200066B0A /* DistancePickerView.h */,
+				A77E88321B1EE3E200066B0A /* DistancePickerView.m */,
+				A77E88331B1EE3E200066B0A /* SWActionSheet.h */,
+				A77E88341B1EE3E200066B0A /* SWActionSheet.m */,
+			);
+			path = Pickers;
 			sourceTree = "<group>";
 		};
 		A7D0933B1B146DBD003C1EBE = {
@@ -290,13 +354,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A77E883A1B1EE3E200066B0A /* ActionSheetStringPicker.m in Sources */,
+				A77E883B1B1EE3E200066B0A /* DistancePickerView.m in Sources */,
+				A77E88351B1EE3E200066B0A /* AbstractActionSheetPicker.m in Sources */,
 				A7D0936E1B146DFD003C1EBE /* RJLastCigaretteViewController.swift in Sources */,
 				A75C1D001B172F70008B3956 /* RJCostPerPackTableViewController.swift in Sources */,
+				A77E883C1B1EE3E200066B0A /* SWActionSheet.m in Sources */,
 				A7D093791B159EAD003C1EBE /* RJIntroViewController.swift in Sources */,
+				A77E88381B1EE3E200066B0A /* ActionSheetDistancePicker.m in Sources */,
 				A7D0936F1B146DFD003C1EBE /* RJSettingsViewController.swift in Sources */,
+				A77E88391B1EE3E200066B0A /* ActionSheetLocalePicker.m in Sources */,
 				A75C1D041B1735E7008B3956 /* RJNumberOfCigarettesPerPackTableViewController.swift in Sources */,
-				A773E4A11B1D5CA30038D718 /* StringExtension.swift in Sources */,
 				A7D0934D1B146DBD003C1EBE /* LastCigarette.xcdatamodeld in Sources */,
+				A77E87CA1B1EC9BC00066B0A /* StringExtension.swift in Sources */,
+				A77E88371B1EE3E200066B0A /* ActionSheetDatePicker.m in Sources */,
+				A77E88361B1EE3E200066B0A /* ActionSheetCustomPicker.m in Sources */,
 				A773E49F1B1D5B7C0038D718 /* Cigarette.swift in Sources */,
 				A7D0934A1B146DBD003C1EBE /* AppDelegate.swift in Sources */,
 				A77E85CE1B1D8CF800066B0A /* RJInitialSettings.swift in Sources */,
@@ -373,6 +445,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "LastCigarette/Libraries/LastCigarette-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -410,6 +483,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "LastCigarette/Libraries/LastCigarette-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -418,15 +492,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LastCigarette/Frameworks",
 					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm/RealmSwift.framework/Frameworks",
 					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm",
+					"$(PROJECT_DIR)/LastCigarette/Libraries/ActionSheetPicker/Example",
+					"Projects/Framework-objc",
 				);
 				INFOPLIST_FILE = LastCigarette/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -434,11 +512,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LastCigarette/Frameworks",
 					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm/RealmSwift.framework/Frameworks",
 					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm",
+					"$(PROJECT_DIR)/LastCigarette/Libraries/ActionSheetPicker/Example",
+					"Projects/Framework-objc",
 				);
 				INFOPLIST_FILE = LastCigarette/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

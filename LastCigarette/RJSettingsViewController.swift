@@ -9,15 +9,16 @@
 import UIKit
 import RealmSwift
 
+
 class RJSettingsViewController: UITableViewController {
     
     var cells: NSArray = []
 
-    @IBOutlet weak var detailLabelQuitDate: UILabel!
+    @IBOutlet weak var labelQuitDate: UILabel!
     @IBOutlet weak var textFieldNumberSmokedPerDay: UITextField!
     @IBOutlet weak var textFieldCostPerPack: UITextField!
     @IBOutlet weak var textFieldNumberOfCigarettesPerPack: UITextField!
-    @IBOutlet weak var textFieldCurrency: UILabel!
+    @IBOutlet weak var labelCurrency: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,19 +30,33 @@ class RJSettingsViewController: UITableViewController {
         let predicate = NSPredicate(format: "id = %@", "1")
         var cigarette = realm.objects(Cigarette).filter(predicate)
         
+        self.labelQuitDate.text = String(cigarette[0].quitDate)
         self.textFieldNumberSmokedPerDay.text = String(cigarette[0].smokedPerDay)
         self.textFieldCostPerPack.text = "\(cigarette[0].costPerPack)"
         self.textFieldNumberOfCigarettesPerPack.text = String(cigarette[0].cigarettesPerPack)
+        self.labelCurrency.text = cigarette[0].currency
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        self.labelQuitDate.resignFirstResponder()
+        self.textFieldNumberSmokedPerDay.resignFirstResponder()
+        self.textFieldCostPerPack.resignFirstResponder()
+        self.textFieldNumberOfCigarettesPerPack.resignFirstResponder()
+        self.labelCurrency.resignFirstResponder()
+    }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //if cell clicked then respond
-        if indexPath.section == 0 && indexPath.row == 1 {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            println("Quit Date tapped")
+        } else if indexPath.section == 0 && indexPath.row == 1 {
             self.textFieldNumberSmokedPerDay.resignFirstResponder()
             self.textFieldNumberSmokedPerDay.keyboardType = UIKeyboardType.NumberPad
             self.textFieldNumberSmokedPerDay.becomeFirstResponder()
@@ -53,6 +68,8 @@ class RJSettingsViewController: UITableViewController {
             self.textFieldNumberOfCigarettesPerPack.resignFirstResponder()
             self.textFieldNumberOfCigarettesPerPack.keyboardType = UIKeyboardType.NumberPad
             self.textFieldNumberOfCigarettesPerPack.becomeFirstResponder()
+        } else if indexPath.section == 1 && indexPath.row == 2 {
+            showCurrencyActionSheet()
         } else {
             self.textFieldNumberSmokedPerDay.resignFirstResponder()
     
@@ -68,6 +85,7 @@ class RJSettingsViewController: UITableViewController {
         cigarette.smokedPerDay = self.textFieldNumberSmokedPerDay.text.toInt()!
         cigarette.costPerPack = self.textFieldCostPerPack.text.floatValue
         cigarette.cigarettesPerPack = self.textFieldNumberOfCigarettesPerPack.text.toInt()!
+        cigarette.currency = self.labelCurrency.text!
         
         let realm = Realm()
         realm.write {
@@ -81,7 +99,17 @@ class RJSettingsViewController: UITableViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func populate() {
+    func showCurrencyActionSheet() {
+        var currencyList = ["$", "£", "€", "¥", "₩", "₽", "Rp", "₨", "฿"]
+        var indexOfCurrencyList = find(currencyList, self.labelCurrency.text!)
+        
+        ActionSheetStringPicker.showPickerWithTitle("Choose a currency", rows: currencyList, initialSelection: indexOfCurrencyList!, doneBlock: {
+            picker, value, index in
+            
+            self.labelCurrency.text = "\(index)"
+            
+        }, cancelBlock: { ActionStringCancelBlock in return }, origin: self.view)
         
     }
+
 }

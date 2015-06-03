@@ -32,7 +32,7 @@ class RJLastCigaretteViewController: UIViewController {
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("calculateAndUpdate"), userInfo: nil, repeats: true) //animate per second
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         //get details
         let realm = Realm()
         let predicate = NSPredicate(format: "id = %@", "1")
