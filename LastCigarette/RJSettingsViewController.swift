@@ -11,7 +11,7 @@ import RealmSwift
 
 class RJSettingsViewController: UITableViewController {
     
-    var cells:NSArray = []
+    var cells: NSArray = []
 
     @IBOutlet weak var detailLabelQuitDate: UILabel!
     @IBOutlet weak var textFieldNumberSmokedPerDay: UITextField!
@@ -32,14 +32,6 @@ class RJSettingsViewController: UITableViewController {
         self.textFieldNumberSmokedPerDay.text = String(cigarette[0].smokedPerDay)
         self.textFieldCostPerPack.text = "\(cigarette[0].costPerPack)"
         self.textFieldNumberOfCigarettesPerPack.text = String(cigarette[0].cigarettesPerPack)
-        
-        self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 44
-        
-        // The DatePickerCell.
-        let datePickerCell = DatePickerCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
-        // Cells is a 2D array containing sections and rows.
-        cells = [[datePickerCell]]
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,7 +60,7 @@ class RJSettingsViewController: UITableViewController {
             self.textFieldNumberOfCigarettesPerPack.resignFirstResponder()
         }
     }
-    
+
     @IBAction func saveTapped(sender: AnyObject) {
         //save
         let cigarette = Cigarette()

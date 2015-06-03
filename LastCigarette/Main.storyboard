@@ -227,35 +227,35 @@
                                             <segue destination="BCD-zo-0hm" kind="show" identifier="SegueQuitDate" id="KjB-HO-OEp"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="QV2-Cx-niv">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="gT9-2s-x6f">
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QV2-Cx-niv" id="7qm-Xe-UnZ">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gT9-2s-x6f" id="clc-Qs-xHS">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Edit" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zki-uI-aNB">
-                                                    <rect key="frame" x="173" y="7" width="412" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="oNG-PI-Qg2"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
-                                                </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No. smoked per day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEz-yW-R42">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No. smoked per day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgZ-Gr-h9S">
                                                     <rect key="frame" x="15" y="11" width="148" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="nlc-BY-aIt"/>
+                                                        <constraint firstAttribute="height" constant="21" id="tzI-OC-z5H"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Edit" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jHy-7g-Bd5">
+                                                    <rect key="frame" x="171" y="7" width="412" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="xfO-fF-dap"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                                </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Zki-uI-aNB" firstAttribute="leading" secondItem="bEz-yW-R42" secondAttribute="trailing" constant="10" id="2l0-mr-lwg"/>
-                                                <constraint firstAttribute="centerY" secondItem="Zki-uI-aNB" secondAttribute="centerY" id="K1J-7B-Ycm"/>
-                                                <constraint firstAttribute="trailing" secondItem="Zki-uI-aNB" secondAttribute="trailing" constant="15" id="Wkb-cA-hD2"/>
-                                                <constraint firstAttribute="centerY" secondItem="bEz-yW-R42" secondAttribute="centerY" id="Z3V-2l-d63"/>
-                                                <constraint firstItem="bEz-yW-R42" firstAttribute="leading" secondItem="7qm-Xe-UnZ" secondAttribute="leading" constant="15" id="m3H-b3-G8e"/>
+                                                <constraint firstAttribute="trailing" secondItem="jHy-7g-Bd5" secondAttribute="trailing" constant="15" id="1tF-6V-jEP"/>
+                                                <constraint firstAttribute="centerY" secondItem="jHy-7g-Bd5" secondAttribute="centerY" id="3Qt-pM-cg7"/>
+                                                <constraint firstItem="rgZ-Gr-h9S" firstAttribute="leading" secondItem="clc-Qs-xHS" secondAttribute="leading" constant="15" id="9cS-XO-hjL"/>
+                                                <constraint firstAttribute="centerY" secondItem="rgZ-Gr-h9S" secondAttribute="centerY" id="Oii-TC-7KR"/>
+                                                <constraint firstItem="jHy-7g-Bd5" firstAttribute="leading" secondItem="rgZ-Gr-h9S" secondAttribute="trailing" constant="10" id="epc-qh-tNH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -278,8 +278,8 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Edit" textAlignment="right" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Zs-ED-A0W">
-                                                    <rect key="frame" x="128" y="7" width="457" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Edit" textAlignment="right" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Zs-ED-A0W">
+                                                    <rect key="frame" x="126" y="7" width="457" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="j43-uB-bq8"/>
                                                     </constraints>
@@ -422,7 +422,7 @@
                         <outlet property="textFieldCostPerPack" destination="1Zs-ED-A0W" id="a0G-sF-0Yf"/>
                         <outlet property="textFieldCurrency" destination="BpO-SF-9df" id="0yj-iT-Jwl"/>
                         <outlet property="textFieldNumberOfCigarettesPerPack" destination="BEW-F0-0rk" id="TEW-02-gJe"/>
-                        <outlet property="textFieldNumberSmokedPerDay" destination="Zki-uI-aNB" id="e36-qa-vfV"/>
+                        <outlet property="textFieldNumberSmokedPerDay" destination="jHy-7g-Bd5" id="5tx-IM-sFW"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ac9-8Z-8sH" userLabel="First Responder" sceneMemberID="firstResponder"/>
