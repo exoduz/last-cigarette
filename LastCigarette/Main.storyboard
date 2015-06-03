@@ -442,6 +442,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="labelCurrency" destination="mae-kt-FB1" id="eMN-Rg-NIC"/>
+                        <outlet property="labelQuitDate" destination="ZyG-fp-x4d" id="g0M-Md-1ce"/>
                         <outlet property="textFieldCostPerPack" destination="1Zs-ED-A0W" id="a0G-sF-0Yf"/>
                         <outlet property="textFieldNumberOfCigarettesPerPack" destination="BEW-F0-0rk" id="TEW-02-gJe"/>
                         <outlet property="textFieldNumberSmokedPerDay" destination="jHy-7g-Bd5" id="5tx-IM-sFW"/>

@@ -30,11 +30,16 @@ class RJSettingsViewController: UITableViewController {
         let predicate = NSPredicate(format: "id = %@", "1")
         var cigarette = realm.objects(Cigarette).filter(predicate)
         
-        self.labelQuitDate.text = String(cigarette[0].quitDate)
-        self.textFieldNumberSmokedPerDay.text = String(cigarette[0].smokedPerDay)
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm a" //set format and locale
+        dateFormatter.timeZone = NSTimeZone()
+        var localDateTime = dateFormatter.stringFromDate(cigarette[0].quitDate)
+        
+        self.labelQuitDate.text = "\(localDateTime)"
+        self.textFieldNumberSmokedPerDay.text = "\(cigarette[0].smokedPerDay)"
         self.textFieldCostPerPack.text = "\(cigarette[0].costPerPack)"
-        self.textFieldNumberOfCigarettesPerPack.text = String(cigarette[0].cigarettesPerPack)
-        self.labelCurrency.text = cigarette[0].currency
+        self.textFieldNumberOfCigarettesPerPack.text = "\(cigarette[0].cigarettesPerPack)"
+        self.labelCurrency.text = "\(cigarette[0].currency)"
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,9 +58,9 @@ class RJSettingsViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //if cell clicked then respond
+        //respond to cell tap
         if indexPath.section == 0 && indexPath.row == 0 {
-            println("Quit Date tapped")
+            showQuitDateActionSheet()
         } else if indexPath.section == 0 && indexPath.row == 1 {
             self.textFieldNumberSmokedPerDay.resignFirstResponder()
             self.textFieldNumberSmokedPerDay.keyboardType = UIKeyboardType.NumberPad
@@ -71,10 +76,11 @@ class RJSettingsViewController: UITableViewController {
         } else if indexPath.section == 1 && indexPath.row == 2 {
             showCurrencyActionSheet()
         } else {
+            self.labelQuitDate.resignFirstResponder()
             self.textFieldNumberSmokedPerDay.resignFirstResponder()
-    
             self.textFieldCostPerPack.resignFirstResponder()
             self.textFieldNumberOfCigarettesPerPack.resignFirstResponder()
+            self.labelCurrency.resignFirstResponder()
         }
     }
 
@@ -109,7 +115,23 @@ class RJSettingsViewController: UITableViewController {
             self.labelCurrency.text = "\(index)"
             
         }, cancelBlock: { ActionStringCancelBlock in return }, origin: self.view)
+    }
+    
+    func showQuitDateActionSheet() {
+        var datePicker = ActionSheetDatePicker(title: "Choose date and time", datePickerMode: UIDatePickerMode.DateAndTime, selectedDate: NSDate(), doneBlock: {
+            picker, value, index in
+            
+            self.labelQuitDate.text = "\(value)"
+            
+            println("value = \(value)")
+            println("index = \(index)")
+            println("picker = \(picker)")
+            return
+        }, cancelBlock: { ActionStringCancelBlock in return }, origin: self.view)
         
+        datePicker.minuteInterval = 5
+        
+        datePicker.showActionSheetPicker()
     }
 
 }
