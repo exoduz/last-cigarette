@@ -13,7 +13,7 @@ import RealmSwift
 class RJLastCigaretteViewController: UIViewController {
     
     var timer = NSTimer()
-    var quitDate: String = ""
+    var quitDate: NSDate = NSDate()
     var costPerPack: Float = 0, cigarettesPerPack: Int = 0, smokedPerDay: Int = 0, currency = ""
     
     @IBOutlet weak var labelYears: UILabel!
@@ -28,7 +28,7 @@ class RJLastCigaretteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+                
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("calculateAndUpdate"), userInfo: nil, repeats: true) //animate per second
     }
     
@@ -38,7 +38,7 @@ class RJLastCigaretteViewController: UIViewController {
         let predicate = NSPredicate(format: "id = %@", "1")
         var cigarette = realm.objects(Cigarette).filter(predicate)
         
-        self.quitDate = "2010-12-03 10:33:00"
+        self.quitDate = cigarette[0].quitDate
         self.smokedPerDay = cigarette[0].smokedPerDay
         self.costPerPack = cigarette[0].costPerPack
         self.cigarettesPerPack = cigarette[0].cigarettesPerPack
@@ -51,11 +51,8 @@ class RJLastCigaretteViewController: UIViewController {
     }
     
     func calculateAndUpdate() {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" //set format and locale
-
         let date = NSDate(); //current UTC time
-        let convertedDate:NSDate = dateFormatter.dateFromString(self.quitDate)!
+        let convertedDate:NSDate = self.quitDate
         let secondsInYear = 31536000, secondsInWeek = 604800, secondsInDay = 86400, secondsInHour = 3600, secondsInMinute = 60
 
         var elapsedTime = NSDate().timeIntervalSinceDate(convertedDate) //get the interval in seconds between the 2 dates
@@ -97,6 +94,7 @@ class RJLastCigaretteViewController: UIViewController {
         costUntilToday = costPerSecond * Float(elapsedTime) //calculate total costs until today
         var numberFormatter = NSNumberFormatter()
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.maximumFractionDigits = 2
         labelSaved.text = self.currency + numberFormatter.stringFromNumber(costUntilToday)!
         
         //calculate total cigarettes

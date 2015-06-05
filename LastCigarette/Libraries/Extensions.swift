@@ -14,6 +14,20 @@ extension String {
     }
 }
 
-func ConverDate() {
+//Convert String to NSDate
+func ConverStringToNSDate(date: String, format: String) -> NSDate {
+    var dateFormatter = NSDateFormatter()
+    dateFormatter.dateFormat = format
+    dateFormatter.timeZone = NSTimeZone()
     
+    return dateFormatter.dateFromString(date)!
+}
+
+//Convert NSDate To String
+func ConvertNSDateToString(date: NSDate, format: String) -> String {
+    var dateFormatter = NSDateFormatter()
+    dateFormatter.dateFormat = format
+    dateFormatter.timeZone = NSTimeZone()
+    
+    return dateFormatter.stringFromDate(date)
 }

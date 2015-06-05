@@ -9,11 +9,10 @@
 import UIKit
 import RealmSwift
 
-
 class RJSettingsViewController: UITableViewController {
     
-    var cells: NSArray = []
-
+    var quitDate: NSDate = NSDate()
+    
     @IBOutlet weak var labelQuitDate: UILabel!
     @IBOutlet weak var textFieldNumberSmokedPerDay: UITextField!
     @IBOutlet weak var textFieldCostPerPack: UITextField!
@@ -29,13 +28,9 @@ class RJSettingsViewController: UITableViewController {
         let realm = Realm()
         let predicate = NSPredicate(format: "id = %@", "1")
         var cigarette = realm.objects(Cigarette).filter(predicate)
+        self.quitDate = cigarette[0].quitDate
         
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm a" //set format and locale
-        dateFormatter.timeZone = NSTimeZone()
-        var localDateTime = dateFormatter.stringFromDate(cigarette[0].quitDate)
-        
-        self.labelQuitDate.text = "\(localDateTime)"
+        self.labelQuitDate.text = ConvertNSDateToString(cigarette[0].quitDate, "d MMM yyyy h:mm a")
         self.textFieldNumberSmokedPerDay.text = "\(cigarette[0].smokedPerDay)"
         self.textFieldCostPerPack.text = "\(cigarette[0].costPerPack)"
         self.textFieldNumberOfCigarettesPerPack.text = "\(cigarette[0].cigarettesPerPack)"
@@ -88,6 +83,7 @@ class RJSettingsViewController: UITableViewController {
         //save
         let cigarette = Cigarette()
         cigarette.id = "1"
+        cigarette.quitDate = self.quitDate
         cigarette.smokedPerDay = self.textFieldNumberSmokedPerDay.text.toInt()!
         cigarette.costPerPack = self.textFieldCostPerPack.text.floatValue
         cigarette.cigarettesPerPack = self.textFieldNumberOfCigarettesPerPack.text.toInt()!
@@ -105,11 +101,30 @@ class RJSettingsViewController: UITableViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    func showQuitDateActionSheet() {
+
+        var datePicker = ActionSheetDatePicker(title: "Choose date", datePickerMode: UIDatePickerMode.DateAndTime, selectedDate: self.quitDate, doneBlock: {
+            picker, value, index in
+            
+            var convertedDate = ""
+            
+            //downcast AnyObject to NSDate object
+            //http://www.codingexplorer.com/type-casting-swift/
+            if let dateObject = value as? NSDate {
+                convertedDate = ConvertNSDateToString(dateObject, "d MMM yyyy h:mm a")
+                self.quitDate = dateObject //set the value of quit date
+            }
+            self.labelQuitDate.text = convertedDate
+        }, cancelBlock: { ActionStringCancelBlock in return }, origin: self.view)
+        
+        datePicker.showActionSheetPicker()
+    }
+    
     func showCurrencyActionSheet() {
         var currencyList = ["$", "£", "€", "¥", "₩", "₽", "Rp", "₨", "฿"]
-        var indexOfCurrencyList = find(currencyList, self.labelCurrency.text!)
+        var chosenIndex = find(currencyList, self.labelCurrency.text!)
         
-        ActionSheetStringPicker.showPickerWithTitle("Choose a currency", rows: currencyList, initialSelection: indexOfCurrencyList!, doneBlock: {
+        ActionSheetStringPicker.showPickerWithTitle("Choose a currency", rows: currencyList, initialSelection: chosenIndex!, doneBlock: {
             picker, value, index in
             
             self.labelCurrency.text = "\(index)"
@@ -117,21 +132,4 @@ class RJSettingsViewController: UITableViewController {
         }, cancelBlock: { ActionStringCancelBlock in return }, origin: self.view)
     }
     
-    func showQuitDateActionSheet() {
-        var datePicker = ActionSheetDatePicker(title: "Choose date and time", datePickerMode: UIDatePickerMode.DateAndTime, selectedDate: NSDate(), doneBlock: {
-            picker, value, index in
-            
-            self.labelQuitDate.text = "\(value)"
-            
-            println("value = \(value)")
-            println("index = \(index)")
-            println("picker = \(picker)")
-            return
-        }, cancelBlock: { ActionStringCancelBlock in return }, origin: self.view)
-        
-        datePicker.minuteInterval = 5
-        
-        datePicker.showActionSheetPicker()
-    }
-
 }
