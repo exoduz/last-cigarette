@@ -12,6 +12,7 @@ import RealmSwift
 
 class RJLastCigaretteViewController: UIViewController {
     
+    let secondsInYear = 31536000, secondsInWeek = 604800, secondsInDay = 86400, secondsInHour = 3600, secondsInMinute = 60
     var timer = NSTimer()
     var quitDate: NSDate = NSDate()
     var costPerPack: Float = 0, cigarettesPerPack: Int = 0, smokedPerDay: Int = 0, currency = ""
@@ -28,11 +29,18 @@ class RJLastCigaretteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-                
+        
+        getData()
+        calculateAndUpdate()
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("calculateAndUpdate"), userInfo: nil, repeats: true) //animate per second
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func getData() {
         //get details
         let realm = Realm()
         let predicate = NSPredicate(format: "id = %@", "1")
@@ -44,16 +52,10 @@ class RJLastCigaretteViewController: UIViewController {
         self.cigarettesPerPack = cigarette[0].cigarettesPerPack
         self.currency = cigarette[0].currency
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func calculateAndUpdate() {
         let date = NSDate(); //current UTC time
         let convertedDate:NSDate = self.quitDate
-        let secondsInYear = 31536000, secondsInWeek = 604800, secondsInDay = 86400, secondsInHour = 3600, secondsInMinute = 60
 
         var elapsedTime = NSDate().timeIntervalSinceDate(convertedDate) //get the interval in seconds between the 2 dates
         var years = 0, weeks = 0, days = 0, hours = 0, minutes = 0, seconds = 0
