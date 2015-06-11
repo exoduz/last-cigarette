@@ -12,32 +12,75 @@ import RealmSwift
 
 class RJLastCigaretteViewController: UIViewController {
     
+    let screenWidth: CGFloat = UIScreen.mainScreen().bounds.width
+    let screenHeight: CGFloat = UIScreen.mainScreen().bounds.height
+    
     let secondsInYear = 31536000, secondsInWeek = 604800, secondsInDay = 86400, secondsInHour = 3600, secondsInMinute = 60
     var timer = NSTimer()
     var quitDate: NSDate = NSDate()
     var costPerPack: Float = 0, cigarettesPerPack: Int = 0, smokedPerDay: Int = 0, currency = ""
     
-    @IBOutlet weak var labelYears: UILabel!
-    @IBOutlet weak var labelWeeks: UILabel!
-    @IBOutlet weak var labelDays: UILabel!
-    @IBOutlet weak var labelHours: UILabel!
-    @IBOutlet weak var labelMinutes: UILabel!
-    @IBOutlet weak var labelSeconds: UILabel!
     @IBOutlet weak var labelSaved: UILabel!
     @IBOutlet weak var labelNumberOfCigarettes: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+
         getData()
         calculateAndUpdate()
+        setupViews()
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("calculateAndUpdate"), userInfo: nil, repeats: true) //animate per second
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setupViews() {
+        //set status bar to light version (NB plist - View controller-based status bar appearance)
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
+        
+        var titleLabel = self.makeCustomLabel("Since my last cigarette...", fontFamily: "HelveticaNeue-light", fontSize: 20.0)
+        titleLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.view.addSubview(titleLabel)
+        
+        //constraints
+        let viewsDictionary = ["titleLabel": titleLabel]
+        
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[titleLabel(\(self.screenWidth - 40))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-130-[titleLabel(50)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+    }
+    
+    func makeCustomLabel(title: String, fontFamily: String, fontSize: CGFloat) -> UILabel {
+        
+        var myLabel: UILabel = UILabel()
+        //myLabel.frame = CGRectMake(0, y, self.screenWidth, 100) //no need to make size as it's set up in addConstraints
+        myLabel.textAlignment = .Center
+        myLabel.text = title
+        myLabel.textColor = UIColor.whiteColor()
+        //myLabel.backgroundColor = UIColor.greenColor()
+        
+        var fontUsed = ""
+        if fontFamily != "" {
+            fontUsed = fontFamily
+        } else {
+            fontUsed = "HelveticaNeue"
+        }
+        myLabel.font = UIFont (name: fontUsed, size: fontSize)
+        //myLabel.font = myLabel.font.fontWithSize(fontSize) //only set font size
+        
+        return myLabel
     }
     
     func getData() {
@@ -81,13 +124,6 @@ class RJLastCigaretteViewController: UIViewController {
     
         seconds = remainderSeconds
         
-        labelYears.text = String(years)
-        labelWeeks.text = String(weeks)
-        labelDays.text = String(days)
-        labelHours.text = String(hours)
-        labelMinutes.text = String(minutes)
-        labelSeconds.text = String(seconds)
-        
         //calculate cost per cigarette per second
         costPerDay = (self.costPerPack / Float(self.cigarettesPerPack)) * Float(self.smokedPerDay)
         costPerSecond = costPerDay / Float(secondsInDay)
@@ -97,11 +133,37 @@ class RJLastCigaretteViewController: UIViewController {
         var numberFormatter = NSNumberFormatter()
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.maximumFractionDigits = 2
-        labelSaved.text = self.currency + numberFormatter.stringFromNumber(costUntilToday)!
         
         //calculate total cigarettes
         cigarettesUntilToday = (Float(self.smokedPerDay) / Float(secondsInDay)) * Float(elapsedTime)
+        
+        //format text
+        var dateDuration = ""
+        var timeDuration = ""
+        
+        dateDuration = String(years) + "years " + String(weeks) + "weeks " + String(days) + "days"
+        timeDuration = String(hours) + "h " + String(minutes) + "m " + String(seconds) + "s"
+        
+        //create labels
+        var quitDateDurationLabel = self.makeCustomLabel(dateDuration, fontFamily: "HelveticaNeue-Ultralight", fontSize: 30)
+        quitDateDurationLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.view.addSubview(quitDateDurationLabel)
+        
+        var quitTimeDurationLabel = self.makeCustomLabel(timeDuration, fontFamily: "HelveticaNeue-Ultralight", fontSize: 55)
+        quitTimeDurationLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.view.addSubview(quitTimeDurationLabel)
+
+        labelSaved.text = self.currency + numberFormatter.stringFromNumber(costUntilToday)!
         labelNumberOfCigarettes.text = String(format: "%.2f", cigarettesUntilToday)
+        
+        //constraints
+        let viewsDictionary = ["quitDateDurationLabel": quitDateDurationLabel, "quitTimeDurationLabel": quitTimeDurationLabel]
+        
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[quitDateDurationLabel(\(self.screenWidth - 40))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-180-[quitDateDurationLabel(50)]", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[quitTimeDurationLabel(\(self.screenWidth - 40))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-260-[quitTimeDurationLabel(60)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
     }
+    
 }
 

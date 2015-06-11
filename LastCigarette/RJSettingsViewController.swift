@@ -23,7 +23,7 @@ class RJSettingsViewController: UITableViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+                
         //get details
         let realm = Realm()
         let predicate = NSPredicate(format: "id = %@", "1")
