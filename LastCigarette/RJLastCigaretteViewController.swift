@@ -23,9 +23,9 @@ class RJLastCigaretteViewController: UIViewController {
     var dateDuration = "", timeDuration = ""
     var quitDateDurationLabel: UILabel = UILabel()
     var quitTimeDurationLabel: UILabel = UILabel()
-    
-    @IBOutlet weak var labelSaved: UILabel!
-    @IBOutlet weak var labelNumberOfCigarettes: UILabel!
+    var costLabel: UILabel = UILabel()
+    var costPerYearLabel: UILabel = UILabel()
+    var numberOfCigarettesLabel: UILabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,46 +55,91 @@ class RJLastCigaretteViewController: UIViewController {
 
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         
-        var titleLabel = self.makeCustomLabel("HelveticaNeue-light", fontSize: 20.0)
+        var titleLabel = self.makeCustomLabel(20, align: "Center")
         titleLabel.text = "Since my last cigarette..."
         titleLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
         self.view.addSubview(titleLabel)
         
-        self.quitDateDurationLabel = self.makeCustomLabel("HelveticaNeue-UltraLight", fontSize: 30)
+        self.quitDateDurationLabel = self.makeCustomLabel(31, align: "Center")
         self.quitDateDurationLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
         self.view.addSubview(self.quitDateDurationLabel)
         
-        self.quitTimeDurationLabel = self.makeCustomLabel("HelveticaNeue-Ultralight", fontSize: 55)
+        self.quitTimeDurationLabel = self.makeCustomLabel(55, align: "Center")
         self.quitTimeDurationLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
         self.view.addSubview(self.quitTimeDurationLabel)
         
+        var costTitleLabel = self.makeCustomLabel(19, align: "Left")
+        costTitleLabel.text = "Total money saved..."
+        costTitleLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.view.addSubview(costTitleLabel)
+        
+        self.costLabel = self.makeCustomLabel(32, align: "Left")
+        self.costLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.view.addSubview(self.costLabel)
+        
+        self.costPerYearLabel = self.makeCustomLabel(20, align: "Left")
+        self.costPerYearLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.view.addSubview(self.costPerYearLabel)
+
+        var numberOfCigarettesTitleLabel = self.makeCustomLabel(19, align: "Left")
+        numberOfCigarettesTitleLabel.text = "Cigarettes NOT smoked..."
+        numberOfCigarettesTitleLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.view.addSubview(numberOfCigarettesTitleLabel)
+
+        self.numberOfCigarettesLabel = self.makeCustomLabel(32, align: "Left")
+        self.numberOfCigarettesLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.view.addSubview(self.numberOfCigarettesLabel)
         
         //constraints
-        let viewsDictionary = ["titleLabel": titleLabel, "quitDateDurationLabel": self.quitDateDurationLabel, "quitTimeDurationLabel": self.quitTimeDurationLabel]
+        let viewsDictionary = [
+            "titleLabel": titleLabel,
+            "quitDateDurationLabel": self.quitDateDurationLabel,
+            "quitTimeDurationLabel": self.quitTimeDurationLabel,
+            "costTitleLabel": costTitleLabel,
+            "costLabel": self.costLabel,
+            "costPerYearLabel": self.costPerYearLabel,
+            "numberOfCigarettesTitleLabel": numberOfCigarettesTitleLabel,
+            "numberOfCigarettesLabel": self.numberOfCigarettesLabel
+        ]
         
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[titleLabel(\(self.screenWidth - 40))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-130-[titleLabel(50)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-100-[titleLabel(50)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[quitDateDurationLabel(\(self.screenWidth - 40))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-190-[quitDateDurationLabel(50)]", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-150-[quitDateDurationLabel(50)]", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[quitTimeDurationLabel(\(self.screenWidth - 40))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-260-[quitTimeDurationLabel(60)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-220-[quitTimeDurationLabel(60)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[costTitleLabel(\((self.screenWidth - 40)))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(self.screenHeight - 230)-[costTitleLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[costLabel(\((self.screenWidth - 40)))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(self.screenHeight - 200)-[costLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[costPerYearLabel(\((self.screenWidth - 40)))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(self.screenHeight - 168)-[costPerYearLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[numberOfCigarettesTitleLabel(\((self.screenWidth - 40)))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(self.screenHeight - 120)-[numberOfCigarettesTitleLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[numberOfCigarettesLabel(\((self.screenWidth - 40)))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(self.screenHeight - 90)-[numberOfCigarettesLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
     }
     
-    func makeCustomLabel(fontFamily: String, fontSize: CGFloat) -> UILabel {
+    func makeCustomLabel(fontSize: CGFloat, align: String) -> UILabel {
         
         var myLabel: UILabel = UILabel()
         //myLabel.frame = CGRectMake(0, y, self.screenWidth, 100) //no need to make size as it's set up in addConstraints
-        myLabel.textAlignment = .Center
-        myLabel.textColor = UIColor.whiteColor()
-        //myLabel.backgroundColor = UIColor.greenColor()
-        
-        var fontUsed = ""
-        if fontFamily != "" {
-            fontUsed = fontFamily
+        if align == "Right" {
+            myLabel.textAlignment = .Right
+        } else if align == "Center" {
+            myLabel.textAlignment = .Center
         } else {
-            fontUsed = "HelveticaNeue"
+            myLabel.textAlignment = .Left
         }
-        myLabel.font = UIFont (name: fontUsed, size: fontSize)
+        myLabel.textColor = UIColor.whiteColor()
+        myLabel.font = UIFont (name: "HelveticaNeue-Thin", size: fontSize)
         //myLabel.font = myLabel.font.fontWithSize(fontSize) //only set font size
         
         return myLabel
@@ -183,9 +228,16 @@ class RJLastCigaretteViewController: UIViewController {
             self.quitDateDurationLabel.text = String(years) + "\(yearText)" + String(weeks) + "\(weekText)" + String(days) + "\(dayText)"
         }
         self.quitTimeDurationLabel.text = String(hours) + "h " + String(format: "%02d", minutes) + "m " + String(format: "%02d", seconds) + "s"
-
-        labelSaved.text = self.currency + numberFormatter.stringFromNumber(costUntilToday)!
-        labelNumberOfCigarettes.text = String(format: "%.2f", cigarettesUntilToday)
+        
+        //if stopped over a year then do cost per year
+        var costPerYear: Float = 0
+        if (years >= 1) {
+            costPerYear = (costUntilToday / Float(years))
+            self.costPerYearLabel.text = "(" + self.currency + numberFormatter.stringFromNumber(costPerYear)! + " per year)"
+        }
+        
+        self.costLabel.text = self.currency + numberFormatter.stringFromNumber(costUntilToday)!
+        self.numberOfCigarettesLabel.text = String(format: "%.2f", cigarettesUntilToday)
     }
     
 }
