@@ -106,7 +106,7 @@ class RJLastCigaretteViewController: UIViewController {
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-100-[titleLabel(50)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
 
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[quitDateDurationLabel(\(self.screenWidth - 40))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-150-[quitDateDurationLabel(50)]", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-165-[quitDateDurationLabel(50)]", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
 
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[quitTimeDurationLabel(\(self.screenWidth - 40))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-220-[quitTimeDurationLabel(60)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
