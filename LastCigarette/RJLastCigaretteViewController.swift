@@ -20,6 +20,10 @@ class RJLastCigaretteViewController: UIViewController {
     var quitDate: NSDate = NSDate()
     var costPerPack: Float = 0, cigarettesPerPack: Int = 0, smokedPerDay: Int = 0, currency = ""
     
+    var dateDuration = "", timeDuration = ""
+    var quitDateDurationLabel: UILabel = UILabel()
+    var quitTimeDurationLabel: UILabel = UILabel()
+    
     @IBOutlet weak var labelSaved: UILabel!
     @IBOutlet weak var labelNumberOfCigarettes: UILabel!
     
@@ -28,8 +32,8 @@ class RJLastCigaretteViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
 
         getData()
-        calculateAndUpdate()
         setupViews()
+        calculateAndUpdate()
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("calculateAndUpdate"), userInfo: nil, repeats: true) //animate per second
     }
     
@@ -51,23 +55,36 @@ class RJLastCigaretteViewController: UIViewController {
 
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         
-        var titleLabel = self.makeCustomLabel("Since my last cigarette...", fontFamily: "HelveticaNeue-light", fontSize: 20.0)
+        var titleLabel = self.makeCustomLabel("HelveticaNeue-light", fontSize: 20.0)
+        titleLabel.text = "Since my last cigarette..."
         titleLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
         self.view.addSubview(titleLabel)
         
+        self.quitDateDurationLabel = self.makeCustomLabel("HelveticaNeue-UltraLight", fontSize: 30)
+        self.quitDateDurationLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.view.addSubview(self.quitDateDurationLabel)
+        
+        self.quitTimeDurationLabel = self.makeCustomLabel("HelveticaNeue-Ultralight", fontSize: 55)
+        self.quitTimeDurationLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.view.addSubview(self.quitTimeDurationLabel)
+        
+        
         //constraints
-        let viewsDictionary = ["titleLabel": titleLabel]
+        let viewsDictionary = ["titleLabel": titleLabel, "quitDateDurationLabel": self.quitDateDurationLabel, "quitTimeDurationLabel": self.quitTimeDurationLabel]
         
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[titleLabel(\(self.screenWidth - 40))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-130-[titleLabel(50)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[quitDateDurationLabel(\(self.screenWidth - 40))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-190-[quitDateDurationLabel(50)]", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[quitTimeDurationLabel(\(self.screenWidth - 40))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-260-[quitTimeDurationLabel(60)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
     }
     
-    func makeCustomLabel(title: String, fontFamily: String, fontSize: CGFloat) -> UILabel {
+    func makeCustomLabel(fontFamily: String, fontSize: CGFloat) -> UILabel {
         
         var myLabel: UILabel = UILabel()
         //myLabel.frame = CGRectMake(0, y, self.screenWidth, 100) //no need to make size as it's set up in addConstraints
         myLabel.textAlignment = .Center
-        myLabel.text = title
         myLabel.textColor = UIColor.whiteColor()
         //myLabel.backgroundColor = UIColor.greenColor()
         
@@ -137,32 +154,38 @@ class RJLastCigaretteViewController: UIViewController {
         //calculate total cigarettes
         cigarettesUntilToday = (Float(self.smokedPerDay) / Float(secondsInDay)) * Float(elapsedTime)
         
-        //format text
-        var dateDuration = ""
-        var timeDuration = ""
+        //update label
         
-        dateDuration = String(years) + "years " + String(weeks) + "weeks " + String(days) + "days"
-        timeDuration = String(hours) + "h " + String(minutes) + "m " + String(seconds) + "s"
+        var yearText = "", weekText = "", dayText = ""
+        if (years <= 1) {
+            yearText = "year "
+        } else {
+            yearText = "years "
+        }
+        if (weeks <= 1) {
+            weekText = "week "
+        } else {
+            weekText = "weeks "
+        }
+        if (days <= 1) {
+            dayText = "day "
+        } else {
+            dayText = "days "
+        }
         
-        //create labels
-        var quitDateDurationLabel = self.makeCustomLabel(dateDuration, fontFamily: "HelveticaNeue-Ultralight", fontSize: 30)
-        quitDateDurationLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
-        self.view.addSubview(quitDateDurationLabel)
-        
-        var quitTimeDurationLabel = self.makeCustomLabel(timeDuration, fontFamily: "HelveticaNeue-Ultralight", fontSize: 55)
-        quitTimeDurationLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
-        self.view.addSubview(quitTimeDurationLabel)
+        if (years < 1 && weeks > 0 && days > 0) {
+            self.quitDateDurationLabel.text = String(weeks) + "\(weekText)" + String(days) + "\(dayText)"
+        } else if (years < 1 && weeks <  1 && days > 0) {
+            self.quitDateDurationLabel.text = String(days) + "\(dayText)"
+        } else if (years < 1 && weeks <  1 && days < 1) {
+            
+        } else {
+            self.quitDateDurationLabel.text = String(years) + "\(yearText)" + String(weeks) + "\(weekText)" + String(days) + "\(dayText)"
+        }
+        self.quitTimeDurationLabel.text = String(hours) + "h " + String(format: "%02d", minutes) + "m " + String(format: "%02d", seconds) + "s"
 
         labelSaved.text = self.currency + numberFormatter.stringFromNumber(costUntilToday)!
         labelNumberOfCigarettes.text = String(format: "%.2f", cigarettesUntilToday)
-        
-        //constraints
-        let viewsDictionary = ["quitDateDurationLabel": quitDateDurationLabel, "quitTimeDurationLabel": quitTimeDurationLabel]
-        
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[quitDateDurationLabel(\(self.screenWidth - 40))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-180-[quitDateDurationLabel(50)]", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[quitTimeDurationLabel(\(self.screenWidth - 40))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-260-[quitTimeDurationLabel(60)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
     }
     
 }
