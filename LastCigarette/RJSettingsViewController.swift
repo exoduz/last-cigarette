@@ -80,6 +80,9 @@ class RJSettingsViewController: UITableViewController {
     }
 
     @IBAction func saveTapped(sender: AnyObject) {
+        //set status bar to light version (NB plist - View controller-based status bar appearance)
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
         //save
         let cigarette = Cigarette()
         cigarette.id = "1"
@@ -98,6 +101,9 @@ class RJSettingsViewController: UITableViewController {
     }
     
     @IBAction func cancelTapped(sender: AnyObject) {
+        //set status bar to light version (NB plist - View controller-based status bar appearance)
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

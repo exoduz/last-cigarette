@@ -332,10 +332,10 @@
             </objects>
             <point key="canvasLocation" x="284" y="227"/>
         </scene>
-        <!--View Controller-->
+        <!--About View Controller-->
         <scene sceneID="8uG-Mh-r9Z">
             <objects>
-                <viewController id="a6j-z5-803" sceneMemberID="viewController">
+                <viewController id="a6j-z5-803" customClass="RJAboutViewController" customModule="LastCigarette" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="REu-Vd-BbK"/>
                         <viewControllerLayoutGuide type="bottom" id="CDk-Qa-SVM"/>
