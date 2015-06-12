@@ -81,8 +81,7 @@ class RJLastCigaretteViewController: UIViewController {
 
         self.numberOfCigarettesLabel = self.makeCustomLabel(32, align: "Left")
         self.numberOfCigarettesLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
-        
-        //add views
+
         self.view.addSubview(titleLabel)
         self.view.addSubview(self.quitDateDurationLabel)
         self.view.addSubview(self.quitTimeDurationLabel)
@@ -103,30 +102,31 @@ class RJLastCigaretteViewController: UIViewController {
             "numberOfCigarettesTitleLabel": numberOfCigarettesTitleLabel,
             "numberOfCigarettesLabel": self.numberOfCigarettesLabel
         ]
+        let metricsDictionary = ["leftConstraint": 20.0, "rightConstraint": 20.0, "labelWidth": (self.screenWidth - 40)]
         
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[titleLabel(\(self.screenWidth - 40))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-100-[titleLabel(50)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-leftConstraint-[titleLabel(labelWidth)]-rightConstraint-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-100-[titleLabel(50)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
 
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[quitDateDurationLabel(\(self.screenWidth - 40))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-165-[quitDateDurationLabel(50)]", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-leftConstraint-[quitDateDurationLabel(labelWidth)]-rightConstraint-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-165-[quitDateDurationLabel(50)]", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
 
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[quitTimeDurationLabel(\(self.screenWidth - 40))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-220-[quitTimeDurationLabel(60)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-leftConstraint-[quitTimeDurationLabel(labelWidth)]-rightConstraint-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-220-[quitTimeDurationLabel(60)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
         
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[costTitleLabel(\((self.screenWidth - 40)))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(self.screenHeight - 230)-[costTitleLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-leftConstraint-[costTitleLabel(labelWidth)]-rightConstraint-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(self.screenHeight - 230)-[costTitleLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
         
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[costLabel(\((self.screenWidth - 40)))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(self.screenHeight - 200)-[costLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-leftConstraint-[costLabel(labelWidth)]-rightConstraint-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(self.screenHeight - 200)-[costLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
         
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[costPerYearLabel(\((self.screenWidth - 40)))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(self.screenHeight - 168)-[costPerYearLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-leftConstraint-[costPerYearLabel(labelWidth)]-rightConstraint-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(self.screenHeight - 168)-[costPerYearLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
 
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[numberOfCigarettesTitleLabel(\((self.screenWidth - 40)))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(self.screenHeight - 120)-[numberOfCigarettesTitleLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-leftConstraint-[numberOfCigarettesTitleLabel(labelWidth)]-rightConstraint-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(self.screenHeight - 120)-[numberOfCigarettesTitleLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
         
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[numberOfCigarettesLabel(\((self.screenWidth - 40)))]-20-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(self.screenHeight - 90)-[numberOfCigarettesLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-leftConstraint-[numberOfCigarettesLabel(labelWidth)]-rightConstraint-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(self.screenHeight - 90)-[numberOfCigarettesLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
     }
     
     func makeCustomLabel(fontSize: CGFloat, align: String) -> UILabel {
