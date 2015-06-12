@@ -14,22 +14,43 @@ class RJIntroViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        setupViews()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func setupViews() {
+        self.view.backgroundColor = UIColor(red: 0x52/255.0, green: 0x7a/255.0, blue: 0x9d/255.0, alpha: 1.0)
+        self.title = "About Last Cigarette"
+        
+        //create 
+        let okButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+        okButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+        okButton.setTitle("Gotcha. Let's get started!", forState: UIControlState.Normal)
+        okButton.addTarget(self, action: "okButtonTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        okButton.backgroundColor = UIColor.blueColor()
+        okButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        
+        view.addSubview(okButton)
+        
+        //constraints
+        let viewsDictionary = [
+            "okButton": okButton
+        ]
+        let metricsDictionary = [
+            "okButtonLeftConstraint": 40.0,
+            "okButtonRightConstraint": 40.0,
+            "okButtonBottomConstraint": (Global.Device.kScreenHeight - 90),
+            "okButtonWidth": (Global.Device.kScreenWidth - 80)
+        ]
+        
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-okButtonLeftConstraint-[okButton(okButtonWidth)]-okButtonRightConstraint-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-okButtonBottomConstraint-[okButton(50)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
+
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func okButtonTapped() {
+        //on initial load send to options page
+        let vc = RJLastCigaretteViewController()
+        self.presentViewController(vc, animated: true, completion: nil)
     }
-    */
-
 }

@@ -15,7 +15,8 @@ func checkInitialLaunch() -> UIViewController {
     let defaults = NSUserDefaults.standardUserDefaults()
 
     var rootViewController : UIViewController;
-
+    
+    /*
     if defaults.boolForKey("HasBeenLaunched") {
         //not first time launched
         rootViewController = storyboard.instantiateViewControllerWithIdentifier("MainStoryboard") as! UIViewController
@@ -31,11 +32,12 @@ func checkInitialLaunch() -> UIViewController {
         rootViewController = storyboard.instantiateViewControllerWithIdentifier("IntroStoryboard") as! UIViewController
         
     }
+    */
+    rootViewController = storyboard.instantiateViewControllerWithIdentifier("IntroStoryboard") as! UIViewController
     
     return rootViewController
 
 }
-
 
 func initialPopulate() {
     let realm = Realm()

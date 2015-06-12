@@ -23,7 +23,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="gTB-SD-CA9" kind="show" id="XRt-gT-Mv4"/>
+                                    <segue destination="E0Q-E5-03Y" kind="presentation" id="vA0-pn-GCy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -372,4 +372,7 @@
     <resources>
         <image name="IOS7 Gear Outline Icon" width="22" height="22"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="vA0-pn-GCy"/>
+    </inferredMetricsTieBreakers>
 </document>

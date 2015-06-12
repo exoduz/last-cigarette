@@ -26,7 +26,7 @@ class RJLastCigaretteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
+        
         getData()
         setupViews()
         calculateAndUpdate()
@@ -51,14 +51,24 @@ class RJLastCigaretteViewController: UIViewController {
 
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         
+        //check device
+        var quitDateFontSize: CGFloat = 0, quitTimeFontSize: CGFloat = 0
+        if (Global.DeviceType.kIsIPhone5) {
+            quitDateFontSize = 25
+            quitTimeFontSize = 40
+        } else {
+            quitDateFontSize = 31
+            quitTimeFontSize = 55
+        }
+        
         var titleLabel = self.makeCustomLabel(20, align: "Center")
         titleLabel.text = "Since my last cigarette..."
         titleLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
         
-        self.quitDateDurationLabel = self.makeCustomLabel(31, align: "Center")
+        self.quitDateDurationLabel = self.makeCustomLabel(quitDateFontSize, align: "Center")
         self.quitDateDurationLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
         
-        self.quitTimeDurationLabel = self.makeCustomLabel(55, align: "Center")
+        self.quitTimeDurationLabel = self.makeCustomLabel(quitTimeFontSize, align: "Center")
         self.quitTimeDurationLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
         
         var costTitleLabel = self.makeCustomLabel(19, align: "Left")
@@ -98,7 +108,7 @@ class RJLastCigaretteViewController: UIViewController {
             "numberOfCigarettesTitleLabel": numberOfCigarettesTitleLabel,
             "numberOfCigarettesLabel": self.numberOfCigarettesLabel
         ]
-        let metricsDictionary = ["leftConstraint": 20.0, "rightConstraint": 20.0, "labelWidth": (Globals.Device.kScreenWidth - 40)]
+        let metricsDictionary = ["leftConstraint": 20.0, "rightConstraint": 20.0, "labelWidth": (Global.Device.kScreenWidth - 40)]
         
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-leftConstraint-[titleLabel(labelWidth)]-rightConstraint-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-100-[titleLabel(50)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
@@ -110,25 +120,25 @@ class RJLastCigaretteViewController: UIViewController {
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-220-[quitTimeDurationLabel(60)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
         
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-leftConstraint-[costTitleLabel(labelWidth)]-rightConstraint-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(Globals.Device.kScreenHeight - 230)-[costTitleLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(Global.Device.kScreenHeight - 230)-[costTitleLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
         
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-leftConstraint-[costLabel(labelWidth)]-rightConstraint-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(Globals.Device.kScreenHeight - 200)-[costLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(Global.Device.kScreenHeight - 200)-[costLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
         
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-leftConstraint-[costPerYearLabel(labelWidth)]-rightConstraint-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(Globals.Device.kScreenHeight - 168)-[costPerYearLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(Global.Device.kScreenHeight - 168)-[costPerYearLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
 
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-leftConstraint-[numberOfCigarettesTitleLabel(labelWidth)]-rightConstraint-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(Globals.Device.kScreenHeight - 120)-[numberOfCigarettesTitleLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(Global.Device.kScreenHeight - 120)-[numberOfCigarettesTitleLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
         
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-leftConstraint-[numberOfCigarettesLabel(labelWidth)]-rightConstraint-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(Globals.Device.kScreenHeight - 90)-[numberOfCigarettesLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-\(Global.Device.kScreenHeight - 90)-[numberOfCigarettesLabel(32)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
     }
     
     func makeCustomLabel(fontSize: CGFloat, align: String) -> UILabel {
         
         var myLabel: UILabel = UILabel()
-        //myLabel.frame = CGRectMake(0, y, Globals.Device.screenWidth, 100) //no need to make size as it's set up in addConstraints
+        //myLabel.frame = CGRectMake(0, y, Global.Device.screenWidth, 100) //no need to make size as it's set up in addConstraints
         if align == "Right" {
             myLabel.textAlignment = .Right
         } else if align == "Center" {
@@ -157,11 +167,12 @@ class RJLastCigaretteViewController: UIViewController {
     }
     
     func calculateAndUpdate() {
-        let secondsInYear = Globals.CalculationConstants.kSecondsInYear
-        let secondsInWeek = Globals.CalculationConstants.kSecondsInWeek
-        let secondsInDay = Globals.CalculationConstants.kSecondsInDay
-        let secondsInHour = Globals.CalculationConstants.kSecondsInHour
-        let secondsInMinute = Globals.CalculationConstants.kSecondsInMinute
+
+        let secondsInYear = Global.CalculationConstants.kSecondsInYear
+        let secondsInWeek = Global.CalculationConstants.kSecondsInWeek
+        let secondsInDay = Global.CalculationConstants.kSecondsInDay
+        let secondsInHour = Global.CalculationConstants.kSecondsInHour
+        let secondsInMinute = Global.CalculationConstants.kSecondsInMinute
         
         let date = NSDate(); //current UTC time
         let convertedDate:NSDate = self.quitDate
@@ -193,12 +204,17 @@ class RJLastCigaretteViewController: UIViewController {
         //calculate cost per cigarette per second
         costPerDay = (self.costPerPack / Float(self.cigarettesPerPack)) * Float(self.smokedPerDay)
         costPerSecond = costPerDay / Float(secondsInDay)
-        
-        //calculate total costs
-        costUntilToday = costPerSecond * Float(elapsedTime) //calculate total costs until today
+
         var numberFormatter = NSNumberFormatter()
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.maximumFractionDigits = 2
+        
+        //calculate total costs
+        if costUntilToday != 0 {
+            costUntilToday = costPerSecond * Float(elapsedTime) //calculate total costs until today
+        } else {
+            costUntilToday = 0
+        }
         
         //calculate total cigarettes
         cigarettesUntilToday = (Float(self.smokedPerDay) / Float(secondsInDay)) * Float(elapsedTime)
@@ -233,6 +249,7 @@ class RJLastCigaretteViewController: UIViewController {
         }
         self.quitTimeDurationLabel.text = String(hours) + "h " + String(format: "%02d", minutes) + "m " + String(format: "%02d", seconds) + "s"
         
+        self.costLabel.text = self.currency + numberFormatter.stringFromNumber(costUntilToday)!
         //if stopped over a year then do cost per year
         var costPerYear: Float = 0
         if (years >= 1) {
@@ -240,7 +257,6 @@ class RJLastCigaretteViewController: UIViewController {
             self.costPerYearLabel.text = "(" + self.currency + numberFormatter.stringFromNumber(costPerYear)! + " per year)"
         }
         
-        self.costLabel.text = self.currency + numberFormatter.stringFromNumber(costUntilToday)!
         self.numberOfCigarettesLabel.text = String(format: "%.2f", cigarettesUntilToday)
     }
     
