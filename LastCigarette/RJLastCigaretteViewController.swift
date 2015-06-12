@@ -58,36 +58,38 @@ class RJLastCigaretteViewController: UIViewController {
         var titleLabel = self.makeCustomLabel(20, align: "Center")
         titleLabel.text = "Since my last cigarette..."
         titleLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
-        self.view.addSubview(titleLabel)
         
         self.quitDateDurationLabel = self.makeCustomLabel(31, align: "Center")
         self.quitDateDurationLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
-        self.view.addSubview(self.quitDateDurationLabel)
         
         self.quitTimeDurationLabel = self.makeCustomLabel(55, align: "Center")
         self.quitTimeDurationLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
-        self.view.addSubview(self.quitTimeDurationLabel)
         
         var costTitleLabel = self.makeCustomLabel(19, align: "Left")
         costTitleLabel.text = "Total money saved..."
         costTitleLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
-        self.view.addSubview(costTitleLabel)
         
         self.costLabel = self.makeCustomLabel(32, align: "Left")
         self.costLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
-        self.view.addSubview(self.costLabel)
         
         self.costPerYearLabel = self.makeCustomLabel(20, align: "Left")
         self.costPerYearLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
-        self.view.addSubview(self.costPerYearLabel)
 
         var numberOfCigarettesTitleLabel = self.makeCustomLabel(19, align: "Left")
         numberOfCigarettesTitleLabel.text = "Cigarettes NOT smoked..."
         numberOfCigarettesTitleLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
-        self.view.addSubview(numberOfCigarettesTitleLabel)
 
         self.numberOfCigarettesLabel = self.makeCustomLabel(32, align: "Left")
         self.numberOfCigarettesLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        
+        //add views
+        self.view.addSubview(titleLabel)
+        self.view.addSubview(self.quitDateDurationLabel)
+        self.view.addSubview(self.quitTimeDurationLabel)
+        self.view.addSubview(costTitleLabel)
+        self.view.addSubview(self.costLabel)
+        self.view.addSubview(self.costPerYearLabel)
+        self.view.addSubview(numberOfCigarettesTitleLabel)
         self.view.addSubview(self.numberOfCigarettesLabel)
         
         //constraints
