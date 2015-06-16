@@ -50,7 +50,9 @@ class RJIntroViewController: UIViewController {
     
     func okButtonTapped() {
         //on initial load send to options page
-        let vc = RJLastCigaretteViewController()
+        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        var vc : UINavigationController;
+        vc = storyboard.instantiateViewControllerWithIdentifier("SettingsNavigationController") as! UINavigationController
         self.presentViewController(vc, animated: true, completion: nil)
     }
 }

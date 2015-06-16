@@ -10,33 +10,23 @@ import Foundation
 import UIKit
 import RealmSwift
 
-func checkInitialLaunch() -> UIViewController {
-    let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+func initialLaunchChecks() -> Bool {
     let defaults = NSUserDefaults.standardUserDefaults()
-
-    var rootViewController : UIViewController;
     
-    /*
     if defaults.boolForKey("HasBeenLaunched") {
         //not first time launched
-        rootViewController = storyboard.instantiateViewControllerWithIdentifier("MainStoryboard") as! UIViewController
+        return false
     } else {
         //first time launched
         //set values in info.plist
-        defaults.setBool(true, forKey: "HasBeenLaunched")
-        defaults.synchronize()
+        //defaults.setBool(true, forKey: "HasBeenLaunched")
+        //defaults.synchronize()
         
-        initialPopulate()
+        //initialPopulate()
         
-        //realm file not present (first time opened)
-        rootViewController = storyboard.instantiateViewControllerWithIdentifier("IntroStoryboard") as! UIViewController
+        return true
         
     }
-    */
-    rootViewController = storyboard.instantiateViewControllerWithIdentifier("IntroStoryboard") as! UIViewController
-    
-    return rootViewController
-
 }
 
 func initialPopulate() {

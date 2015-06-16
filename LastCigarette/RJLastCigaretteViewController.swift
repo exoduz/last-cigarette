@@ -33,11 +33,17 @@ class RJLastCigaretteViewController: UIViewController {
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("calculateAndUpdate"), userInfo: nil, repeats: true) //animate per second
     }
     
+    override func viewDidAppear(animated: Bool) {
+        if Global.Application.kApplicationHasBeenLaunchedBefore {
+            //if initial launch present settings vc
+            onInitialLaunch()
+        }
+    }
+    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -151,6 +157,11 @@ class RJLastCigaretteViewController: UIViewController {
         //myLabel.font = myLabel.font.fontWithSize(fontSize) //only set font size
         
         return myLabel
+    }
+    
+    func onInitialLaunch() {
+        let vc = RJIntroViewController()
+        self.presentViewController(vc, animated: true, completion: nil)
     }
     
     func getData() {

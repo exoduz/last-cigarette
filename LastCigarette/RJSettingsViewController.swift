@@ -96,14 +96,14 @@ class RJSettingsViewController: UITableViewController {
         realm.write {
             realm.add(cigarette, update: true)
         }
-        
+
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func cancelTapped(sender: AnyObject) {
         //set status bar to light version (NB plist - View controller-based status bar appearance)
         UIApplication.sharedApplication().statusBarStyle = .LightContent
-        
+
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

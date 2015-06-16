@@ -9,6 +9,10 @@
 import Foundation
 
 struct Global {
+    
+    struct Application {
+        static let kApplicationHasBeenLaunchedBefore = initialLaunchChecks()
+    }
 
     struct Device {
         static let kScreenWidth: CGFloat = UIScreen.mainScreen().bounds.width
