@@ -123,6 +123,7 @@ class RJSettingsViewController: UITableViewController {
             self.labelQuitDate.text = convertedDate
         }, cancelBlock: { ActionStringCancelBlock in return }, origin: self.view)
         
+        datePicker.maximumDate = NSDate()
         datePicker.showActionSheetPicker()
     }
     

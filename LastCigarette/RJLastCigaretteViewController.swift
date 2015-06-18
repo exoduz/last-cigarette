@@ -35,7 +35,6 @@ class RJLastCigaretteViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-
         if !hasApplicationBeenLaunchedBefore() {
             //if initial launch present intro vc
             let intro = RJIntroViewController()
@@ -223,7 +222,7 @@ class RJLastCigaretteViewController: UIViewController {
         numberFormatter.maximumFractionDigits = 2
         
         //calculate total costs
-        if costUntilToday != 0 {
+        if costPerSecond > 0 {
             costUntilToday = costPerSecond * Float(elapsedTime) //calculate total costs until today
         } else {
             costUntilToday = 0
@@ -232,8 +231,7 @@ class RJLastCigaretteViewController: UIViewController {
         //calculate total cigarettes
         cigarettesUntilToday = (Float(self.smokedPerDay) / Float(secondsInDay)) * Float(elapsedTime)
         
-        //update label
-        
+        //text for duration
         var yearText = "", weekText = "", dayText = ""
         if (years <= 1) {
             yearText = "year "
@@ -251,6 +249,7 @@ class RJLastCigaretteViewController: UIViewController {
             dayText = "days "
         }
         
+        //update labels
         if (years < 1 && weeks > 0 && days > 0) {
             self.quitDateDurationLabel.text = String(weeks) + "\(weekText)" + String(days) + "\(dayText)"
         } else if (years < 1 && weeks <  1 && days > 0) {
