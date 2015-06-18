@@ -10,39 +10,39 @@ import Foundation
 import UIKit
 import RealmSwift
 
-func initialLaunchChecks() -> Bool {
+func hasApplicationBeenLaunchedBefore() -> Bool {
     let defaults = NSUserDefaults.standardUserDefaults()
     
     if defaults.boolForKey("HasBeenLaunched") {
         //not first time launched
-        return false
+        return true
     } else {
         //first time launched
         //set values in info.plist
-        //defaults.setBool(true, forKey: "HasBeenLaunched")
-        //defaults.synchronize()
+        initialPopulate()
         
-        //initialPopulate()
-        
-        return true
+        return false
         
     }
 }
 
 func initialPopulate() {
     let realm = Realm()
-    var results = realm.objects(Cigarette)
+    let predicate = NSPredicate(format: "id = %@", "1")
+    var cigarette = realm.objects(Cigarette).filter(predicate)
     
-    var cigarette = Cigarette()
-    cigarette.id = "1"
-    cigarette.quitDate = NSDate()
-    cigarette.smokedPerDay = 0
-    cigarette.costPerPack = 0.0
-    cigarette.cigarettesPerPack = 0
-    cigarette.currency = "$"
-    
-    // Save initial object
-    realm.beginWrite()
-    realm.add(cigarette)
-    realm.commitWrite()
+    if Int(cigarette.count) == 0 {
+        var initialCigarette = Cigarette()
+        initialCigarette.id = "1"
+        initialCigarette.quitDate = NSDate()
+        initialCigarette.smokedPerDay = 0
+        initialCigarette.costPerPack = 0.0
+        initialCigarette.cigarettesPerPack = 0
+        initialCigarette.currency = "$"
+        
+        // Save initial object
+        realm.beginWrite()
+        realm.add(initialCigarette)
+        realm.commitWrite()
+    }
 }

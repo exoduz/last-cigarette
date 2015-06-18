@@ -27,6 +27,7 @@ class RJLastCigaretteViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        hasApplicationBeenLaunchedBefore()
         getData()
         setupViews()
         calculateAndUpdate()
@@ -34,9 +35,15 @@ class RJLastCigaretteViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        if Global.Application.kApplicationHasBeenLaunchedBefore {
-            //if initial launch present settings vc
-            onInitialLaunch()
+
+        if !hasApplicationBeenLaunchedBefore() {
+            //if initial launch present intro vc
+            let intro = RJIntroViewController()
+            self.presentViewController(intro, animated: true, completion: nil)
+            
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setBool(true, forKey: "HasBeenLaunched")
+            defaults.synchronize()
         }
     }
     
@@ -159,11 +166,6 @@ class RJLastCigaretteViewController: UIViewController {
         return myLabel
     }
     
-    func onInitialLaunch() {
-        let vc = RJIntroViewController()
-        self.presentViewController(vc, animated: true, completion: nil)
-    }
-    
     func getData() {
         //get details
         let realm = Realm()
@@ -268,7 +270,7 @@ class RJLastCigaretteViewController: UIViewController {
             self.costPerYearLabel.text = "(" + self.currency + numberFormatter.stringFromNumber(costPerYear)! + " per year)"
         }
         
-        self.numberOfCigarettesLabel.text = String(format: "%.2f", cigarettesUntilToday)
+        self.numberOfCigarettesLabel.text = String(format: "%.0f", cigarettesUntilToday)
     }
     
 }
