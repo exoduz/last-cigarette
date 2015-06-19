@@ -13,6 +13,7 @@
 		A7074C901B2825DA00BD2960 /* gear-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A7074C8A1B2825DA00BD2960 /* gear-icon.png */; };
 		A7074C911B2825DA00BD2960 /* gear-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7074C8B1B2825DA00BD2960 /* gear-icon@2x.png */; };
 		A7074C921B2825DA00BD2960 /* gear-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7074C8C1B2825DA00BD2960 /* gear-icon@3x.png */; };
+		A749A65C1B343D17003935FC /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A65B1B343D17003935FC /* CustomLabel.swift */; };
 		A75C1D001B172F70008B3956 /* RJCostPerPackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75C1CFF1B172F6F008B3956 /* RJCostPerPackTableViewController.swift */; };
 		A75C1D041B1735E7008B3956 /* RJNumberOfCigarettesPerPackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75C1D031B1735E7008B3956 /* RJNumberOfCigarettesPerPackTableViewController.swift */; };
 		A773E49F1B1D5B7C0038D718 /* Cigarette.swift in Sources */ = {isa = PBXBuildFile; fileRef = A773E49E1B1D5B7C0038D718 /* Cigarette.swift */; };
@@ -28,7 +29,7 @@
 		A77E883A1B1EE3E200066B0A /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A77E88301B1EE3E200066B0A /* ActionSheetStringPicker.m */; };
 		A77E883B1B1EE3E200066B0A /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A77E88321B1EE3E200066B0A /* DistancePickerView.m */; };
 		A77E883C1B1EE3E200066B0A /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A77E88341B1EE3E200066B0A /* SWActionSheet.m */; };
-		A7ADB5BF1B2AB72500879312 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADB5BE1B2AB72500879312 /* Global.swift */; };
+		A7ADB5BF1B2AB72500879312 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADB5BE1B2AB72500879312 /* Globals.swift */; };
 		A7ADB5C31B2ABBEA00879312 /* RJAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADB5C21B2ABBEA00879312 /* RJAboutViewController.swift */; };
 		A7ADB5C51B2AC2E300879312 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADB5C41B2AC2E300879312 /* Extensions.swift */; };
 		A7D0934A1B146DBD003C1EBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D093491B146DBD003C1EBE /* AppDelegate.swift */; };
@@ -83,6 +84,7 @@
 		A7074C8A1B2825DA00BD2960 /* gear-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear-icon.png"; sourceTree = "<group>"; };
 		A7074C8B1B2825DA00BD2960 /* gear-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear-icon@2x.png"; sourceTree = "<group>"; };
 		A7074C8C1B2825DA00BD2960 /* gear-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear-icon@3x.png"; sourceTree = "<group>"; };
+		A749A65B1B343D17003935FC /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomLabel.swift; path = "LastCigarette/Custom Classes/CustomLabel.swift"; sourceTree = "<group>"; };
 		A75C1CFF1B172F6F008B3956 /* RJCostPerPackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RJCostPerPackTableViewController.swift; sourceTree = "<group>"; };
 		A75C1D031B1735E7008B3956 /* RJNumberOfCigarettesPerPackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RJNumberOfCigarettesPerPackTableViewController.swift; sourceTree = "<group>"; };
 		A773E49E1B1D5B7C0038D718 /* Cigarette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cigarette.swift; sourceTree = "<group>"; };
@@ -108,7 +110,7 @@
 		A77E88331B1EE3E200066B0A /* SWActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWActionSheet.h; sourceTree = "<group>"; };
 		A77E88341B1EE3E200066B0A /* SWActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWActionSheet.m; sourceTree = "<group>"; };
 		A77E883E1B1EE43E00066B0A /* LastCigarette-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LastCigarette-Bridging-Header.h"; sourceTree = "<group>"; };
-		A7ADB5BE1B2AB72500879312 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Global.swift; path = Singletons/Global.swift; sourceTree = "<group>"; };
+		A7ADB5BE1B2AB72500879312 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Globals.swift; path = Singletons/Globals.swift; sourceTree = "<group>"; };
 		A7ADB5C21B2ABBEA00879312 /* RJAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RJAboutViewController.swift; sourceTree = "<group>"; };
 		A7ADB5C41B2AC2E300879312 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = "LastCigarette/Custom Classes/Extensions.swift"; sourceTree = "<group>"; };
 		A7D093441B146DBD003C1EBE /* LastCigarette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LastCigarette.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,7 +188,7 @@
 		A77E85CF1B1D8D1400066B0A /* Singletons */ = {
 			isa = PBXGroup;
 			children = (
-				A7ADB5BE1B2AB72500879312 /* Global.swift */,
+				A7ADB5BE1B2AB72500879312 /* Globals.swift */,
 				A77E85CD1B1D8CF800066B0A /* RJInitialSettings.swift */,
 			);
 			name = Singletons;
@@ -254,6 +256,7 @@
 		A7ADB5C61B2AC2F500879312 /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A749A65B1B343D17003935FC /* CustomLabel.swift */,
 				A7ADB5C41B2AC2E300879312 /* Extensions.swift */,
 			);
 			name = "Custom Classes";
@@ -442,10 +445,11 @@
 				A7D0936E1B146DFD003C1EBE /* RJLastCigaretteViewController.swift in Sources */,
 				A75C1D001B172F70008B3956 /* RJCostPerPackTableViewController.swift in Sources */,
 				A77E883C1B1EE3E200066B0A /* SWActionSheet.m in Sources */,
-				A7ADB5BF1B2AB72500879312 /* Global.swift in Sources */,
+				A7ADB5BF1B2AB72500879312 /* Globals.swift in Sources */,
 				A7D093791B159EAD003C1EBE /* RJIntroViewController.swift in Sources */,
 				A7ADB5C31B2ABBEA00879312 /* RJAboutViewController.swift in Sources */,
 				A77E88381B1EE3E200066B0A /* ActionSheetDistancePicker.m in Sources */,
+				A749A65C1B343D17003935FC /* CustomLabel.swift in Sources */,
 				A7D0936F1B146DFD003C1EBE /* RJSettingsViewController.swift in Sources */,
 				A77E88391B1EE3E200066B0A /* ActionSheetLocalePicker.m in Sources */,
 				A75C1D041B1735E7008B3956 /* RJNumberOfCigarettesPerPackTableViewController.swift in Sources */,

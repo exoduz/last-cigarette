@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Global {
+struct Globals {
     
     struct Device {
         static let kScreenWidth: CGFloat = UIScreen.mainScreen().bounds.width
@@ -16,16 +16,16 @@ struct Global {
     }
     
     struct ScreenSize {
-        static let kScreenMaxLength    = max(Global.Device.kScreenWidth, Global.Device.kScreenHeight)
-        static let kScreenMinLength    = min(Global.Device.kScreenWidth, Global.Device.kScreenHeight)
+        static let kScreenMaxLength    = max(Globals.Device.kScreenWidth, Globals.Device.kScreenHeight)
+        static let kScreenMinLength    = min(Globals.Device.kScreenWidth, Globals.Device.kScreenHeight)
     }
     
     struct DeviceType {
-        static let kIsIPhone4OrLess = UIDevice.currentDevice().userInterfaceIdiom == .Phone && Global.ScreenSize.kScreenMaxLength < 568.0
-        static let kIsIPhone5 = UIDevice.currentDevice().userInterfaceIdiom == .Phone && Global.ScreenSize.kScreenMaxLength == 568.0
-        static let kIsIPhone6 = UIDevice.currentDevice().userInterfaceIdiom == .Phone && Global.ScreenSize.kScreenMaxLength == 667.0
-        static let kIsIPhone6P = UIDevice.currentDevice().userInterfaceIdiom == .Phone && Global.ScreenSize.kScreenMaxLength == 736.0
-        static let kIsIPad = UIDevice.currentDevice().userInterfaceIdiom == .Pad && Global.ScreenSize.kScreenMaxLength == 1024.0
+        static let kIsIPhone4OrLess = UIDevice.currentDevice().userInterfaceIdiom == .Phone && Globals.ScreenSize.kScreenMaxLength < 568.0
+        static let kIsIPhone5 = UIDevice.currentDevice().userInterfaceIdiom == .Phone && Globals.ScreenSize.kScreenMaxLength == 568.0
+        static let kIsIPhone6 = UIDevice.currentDevice().userInterfaceIdiom == .Phone && Globals.ScreenSize.kScreenMaxLength == 667.0
+        static let kIsIPhone6P = UIDevice.currentDevice().userInterfaceIdiom == .Phone && Globals.ScreenSize.kScreenMaxLength == 736.0
+        static let kIsIPad = UIDevice.currentDevice().userInterfaceIdiom == .Pad && Globals.ScreenSize.kScreenMaxLength == 1024.0
     }
     
     struct CalculationConstants {

@@ -13,16 +13,22 @@ import RealmSwift
 func hasApplicationBeenLaunchedBefore() -> Bool {
     let defaults = NSUserDefaults.standardUserDefaults()
     
+    //check plist whether app has been launched before
     if defaults.boolForKey("HasBeenLaunched") {
-        //not first time launched
         return true
     } else {
-        //first time launched
-        //set values in info.plist
-        initialPopulate()
-        
         return false
-        
+    }
+}
+
+func hasOptionsBeenPresentedBefore() -> Bool {
+    let defaults = NSUserDefaults.standardUserDefaults()
+
+    //check plist whether options has been presented before
+    if defaults.boolForKey("HasOptionsBeenPresented") {
+        return true
+    } else {
+        return false
     }
 }
 

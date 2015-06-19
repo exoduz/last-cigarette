@@ -17,10 +17,38 @@ class RJIntroViewController: UIViewController {
         
         setupViews()
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
+    }
 
     func setupViews() {
-        self.view.backgroundColor = UIColor(red: 0x52/255.0, green: 0x7a/255.0, blue: 0x9d/255.0, alpha: 1.0)
+        //self.view.backgroundColor = UIColor(red: 0x52/255.0, green: 0x7a/255.0, blue: 0x9d/255.0, alpha: 1.0)
         self.title = "About Last Cigarette"
+        
+        //set status bar to light version (NB plist - View controller-based status bar appearance)
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
+        
+        //check device
+        var quitDateFontSize: CGFloat = 0, quitTimeFontSize: CGFloat = 0
+        if (Globals.DeviceType.kIsIPhone5) {
+            quitDateFontSize = 25
+            quitTimeFontSize = 40
+        } else {
+            quitDateFontSize = 31
+            quitTimeFontSize = 55
+        }
+        
+        var customLabel = CustomLabel()
+        var titleLabel = customLabel.makeCustomLabel(20, align: "Center")
+        titleLabel.text = "Since my last cigarette..."
+        titleLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        
+        self.view.addSubview(titleLabel)
         
         //create 
         let okButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
@@ -39,8 +67,8 @@ class RJIntroViewController: UIViewController {
         let metricsDictionary = [
             "okButtonLeftConstraint": 40.0,
             "okButtonRightConstraint": 40.0,
-            "okButtonBottomConstraint": (Global.Device.kScreenHeight - 90),
-            "okButtonWidth": (Global.Device.kScreenWidth - 80)
+            "okButtonBottomConstraint": (Globals.Device.kScreenHeight - 90),
+            "okButtonWidth": (Globals.Device.kScreenWidth - 80)
         ]
         
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-okButtonLeftConstraint-[okButton(okButtonWidth)]-okButtonRightConstraint-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
