@@ -27,19 +27,31 @@ class RJLastCigaretteViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        hasApplicationBeenLaunchedBefore()
         getData()
         setupViews()
         calculateAndUpdate()
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("calculateAndUpdate"), userInfo: nil, repeats: true) //animate per second
+        calculateUpdateAndSchedule()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        getData()
+        calculateAndUpdate()
+        calculateUpdateAndSchedule()
     }
     
     override func viewDidAppear(animated: Bool) {
         if !hasApplicationBeenLaunchedBefore() {
-            //if initial launch present intro vc
+            //intro
             let intro = RJIntroViewController()
             self.presentViewController(intro, animated: true, completion: nil)
             
+            //settings
+            /*
+            var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            var settings: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("SettingsNavigationController") as! UINavigationController
+            self.presentViewController(settings, animated: true, completion: nil)
+            */
+                        
             let defaults = NSUserDefaults.standardUserDefaults()
             defaults.setBool(true, forKey: "HasBeenLaunched")
             defaults.synchronize()
@@ -49,6 +61,7 @@ class RJLastCigaretteViewController: UIViewController {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
+        self.timer.invalidate()
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
     }
     
@@ -250,14 +263,16 @@ class RJLastCigaretteViewController: UIViewController {
         }
         
         //update labels
-        if (years < 1 && weeks > 0 && days > 0) {
-            self.quitDateDurationLabel.text = String(weeks) + "\(weekText)" + String(days) + "\(dayText)"
-        } else if (years < 1 && weeks <  1 && days > 0) {
-            self.quitDateDurationLabel.text = String(days) + "\(dayText)"
-        } else if (years < 1 && weeks <  1 && days < 1) {
-            
-        } else {
+        if (Int(elapsedTime) > secondsInYear) {
             self.quitDateDurationLabel.text = String(years) + "\(yearText)" + String(weeks) + "\(weekText)" + String(days) + "\(dayText)"
+        } else if (Int(elapsedTime) > secondsInWeek && Int(elapsedTime) <= secondsInYear) {
+            self.quitDateDurationLabel.text = String(weeks) + "\(weekText)" + String(days) + "\(dayText)"
+        } else if (Int(elapsedTime) > secondsInDay && Int(elapsedTime) <= secondsInWeek) {
+            self.quitDateDurationLabel.text = String(days) + "\(dayText)"
+        } else if (Int(elapsedTime) <= secondsInDay) {
+            //intentionally left blank
+        } else {
+            self.quitDateDurationLabel.text = String(days) + "\(dayText)"
         }
         self.quitTimeDurationLabel.text = String(hours) + "h " + String(format: "%02d", minutes) + "m " + String(format: "%02d", seconds) + "s"
         
@@ -270,6 +285,10 @@ class RJLastCigaretteViewController: UIViewController {
         }
         
         self.numberOfCigarettesLabel.text = String(format: "%.0f", cigarettesUntilToday)
+    }
+    
+    func calculateUpdateAndSchedule() {
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("calculateAndUpdate"), userInfo: nil, repeats: true) //animate per second
     }
     
 }
