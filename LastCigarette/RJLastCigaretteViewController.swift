@@ -50,6 +50,7 @@ class RJLastCigaretteViewController: UIViewController {
             //defaults.synchronize()
         }
         
+        /*
         if !hasOptionsBeenPresentedBefore() {
             //settings
             var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -59,6 +60,7 @@ class RJLastCigaretteViewController: UIViewController {
             //defaults.setBool(true, forKey: "HasOptionsBeenPresented")
             //defaults.synchronize()
         }
+        */
     }
     
     override func viewWillDisappear(animated: Bool) {

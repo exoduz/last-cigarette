@@ -33,6 +33,12 @@ class RJIntroViewController: UIViewController {
         
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         
+        //blur
+        var blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        var effectView:UIVisualEffectView = UIVisualEffectView (effect: blur)
+        var deviceFrame = CGRectMake(0, 0, Globals.Device.kScreenWidth, Globals.Device.kScreenHeight)
+        effectView.frame = deviceFrame
+        
         //check device
         var quitDateFontSize: CGFloat = 0, quitTimeFontSize: CGFloat = 0
         if (Globals.DeviceType.kIsIPhone5) {
@@ -43,14 +49,12 @@ class RJIntroViewController: UIViewController {
             quitTimeFontSize = 55
         }
         
+        //create
         var customLabel = CustomLabel()
         var titleLabel = customLabel.makeCustomLabel(20, align: "Center")
         titleLabel.text = "Since my last cigarette..."
         titleLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
         
-        self.view.addSubview(titleLabel)
-        
-        //create 
         let okButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
         okButton.setTranslatesAutoresizingMaskIntoConstraints(false)
         okButton.setTitle("Gotcha. Let's get started!", forState: UIControlState.Normal)
@@ -58,6 +62,8 @@ class RJIntroViewController: UIViewController {
         okButton.backgroundColor = UIColor.blueColor()
         okButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         
+        view.addSubview(effectView)
+        view.addSubview(titleLabel)
         view.addSubview(okButton)
         
         //constraints
@@ -65,15 +71,15 @@ class RJIntroViewController: UIViewController {
             "okButton": okButton
         ]
         let metricsDictionary = [
-            "okButtonLeftConstraint": 40.0,
-            "okButtonRightConstraint": 40.0,
-            "okButtonBottomConstraint": (Globals.Device.kScreenHeight - 90),
-            "okButtonWidth": (Globals.Device.kScreenWidth - 80)
+            "okButtonHeight": 60,
+            "okButtonLeftConstraint": 0,
+            "okButtonRightConstraint": 0,
+            "okButtonBottomConstraint": (Globals.Device.kScreenHeight - 60),
+            "okButtonWidth": (Globals.Device.kScreenWidth)
         ]
         
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-okButtonLeftConstraint-[okButton(okButtonWidth)]-okButtonRightConstraint-|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-okButtonBottomConstraint-[okButton(50)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
-
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-okButtonBottomConstraint-[okButton(okButtonHeight)]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: metricsDictionary, views: viewsDictionary))
     }
     
     func okButtonTapped() {
