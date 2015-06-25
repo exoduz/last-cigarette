@@ -14,6 +14,9 @@
 		A7074C911B2825DA00BD2960 /* gear-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7074C8B1B2825DA00BD2960 /* gear-icon@2x.png */; };
 		A7074C921B2825DA00BD2960 /* gear-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7074C8C1B2825DA00BD2960 /* gear-icon@3x.png */; };
 		A749A65C1B343D17003935FC /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A749A65B1B343D17003935FC /* CustomLabel.swift */; };
+		A749A6621B3BFDD3003935FC /* background-intro.png in Resources */ = {isa = PBXBuildFile; fileRef = A749A65F1B3BFDD2003935FC /* background-intro.png */; };
+		A749A6631B3BFDD3003935FC /* background-intro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A749A6601B3BFDD3003935FC /* background-intro@2x.png */; };
+		A749A6641B3BFDD3003935FC /* background-intro@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A749A6611B3BFDD3003935FC /* background-intro@3x.png */; };
 		A75C1D001B172F70008B3956 /* RJCostPerPackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75C1CFF1B172F6F008B3956 /* RJCostPerPackTableViewController.swift */; };
 		A75C1D041B1735E7008B3956 /* RJNumberOfCigarettesPerPackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75C1D031B1735E7008B3956 /* RJNumberOfCigarettesPerPackTableViewController.swift */; };
 		A773E49F1B1D5B7C0038D718 /* Cigarette.swift in Sources */ = {isa = PBXBuildFile; fileRef = A773E49E1B1D5B7C0038D718 /* Cigarette.swift */; };
@@ -85,6 +88,9 @@
 		A7074C8B1B2825DA00BD2960 /* gear-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear-icon@2x.png"; sourceTree = "<group>"; };
 		A7074C8C1B2825DA00BD2960 /* gear-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear-icon@3x.png"; sourceTree = "<group>"; };
 		A749A65B1B343D17003935FC /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomLabel.swift; path = "LastCigarette/Custom Classes/CustomLabel.swift"; sourceTree = "<group>"; };
+		A749A65F1B3BFDD2003935FC /* background-intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-intro.png"; sourceTree = "<group>"; };
+		A749A6601B3BFDD3003935FC /* background-intro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-intro@2x.png"; sourceTree = "<group>"; };
+		A749A6611B3BFDD3003935FC /* background-intro@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-intro@3x.png"; sourceTree = "<group>"; };
 		A75C1CFF1B172F6F008B3956 /* RJCostPerPackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RJCostPerPackTableViewController.swift; sourceTree = "<group>"; };
 		A75C1D031B1735E7008B3956 /* RJNumberOfCigarettesPerPackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RJNumberOfCigarettesPerPackTableViewController.swift; sourceTree = "<group>"; };
 		A773E49E1B1D5B7C0038D718 /* Cigarette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cigarette.swift; sourceTree = "<group>"; };
@@ -168,6 +174,9 @@
 		A7074C851B2825DA00BD2960 /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				A749A65F1B3BFDD2003935FC /* background-intro.png */,
+				A749A6601B3BFDD3003935FC /* background-intro@2x.png */,
+				A749A6611B3BFDD3003935FC /* background-intro@3x.png */,
 				A7074C861B2825DA00BD2960 /* background.png */,
 				A7074C871B2825DA00BD2960 /* background@2x.png */,
 				A7074C881B2825DA00BD2960 /* background@3x.png */,
@@ -413,10 +422,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A749A6631B3BFDD3003935FC /* background-intro@2x.png in Resources */,
 				A7074C8F1B2825DA00BD2960 /* background@3x.png in Resources */,
 				A7074C921B2825DA00BD2960 /* gear-icon@3x.png in Resources */,
 				A7D093711B146E33003C1EBE /* Main.storyboard in Resources */,
 				A7D093571B146DBD003C1EBE /* LaunchScreen.xib in Resources */,
+				A749A6621B3BFDD3003935FC /* background-intro.png in Resources */,
+				A749A6641B3BFDD3003935FC /* background-intro@3x.png in Resources */,
 				A7074C8D1B2825DA00BD2960 /* background.png in Resources */,
 				A7074C901B2825DA00BD2960 /* gear-icon.png in Resources */,
 				A7074C8E1B2825DA00BD2960 /* background@2x.png in Resources */,
