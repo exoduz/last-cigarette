@@ -53,15 +53,23 @@ class RJIntroViewController: UIViewController {
         introLabel.text = "Since my last cigarette..."
         introLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
         
+        let settingsButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+        settingsButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+        settingsButton.setTitle("Go to Settings", forState: UIControlState.Normal)
+        settingsButton.addTarget(self, action: "okButtonTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        settingsButton.backgroundColor = UIColor(red: 64/255.0, green: 102.0/255.0, blue: 150.0/255.0, alpha: 0.9)
+        settingsButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        
         let okButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
         okButton.setTranslatesAutoresizingMaskIntoConstraints(false)
         okButton.setTitle("Gotcha. Let's get started!", forState: UIControlState.Normal)
         okButton.addTarget(self, action: "okButtonTapped", forControlEvents: UIControlEvents.TouchUpInside)
-        okButton.backgroundColor = UIColor.blueColor()
+        okButton.backgroundColor = UIColor(red: 21.0/255.0, green: 32.0/255.0, blue: 64.0/255.0, alpha: 0.9)
         okButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         
         view.addSubview(effectView)
         view.addSubview(introLabel)
+        view.addSubview(settingsButton)
         view.addSubview(okButton)
         
         //constraints
