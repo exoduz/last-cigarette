@@ -46,8 +46,8 @@ class RJLastCigaretteViewController: UIViewController {
             let intro = RJIntroViewController()
             self.presentViewController(intro, animated: true, completion: nil)
             
-            //defaults.setBool(true, forKey: "HasBeenLaunched")
-            //defaults.synchronize()
+            defaults.setBool(true, forKey: "HasBeenLaunched")
+            defaults.synchronize()
         }
         
         /*

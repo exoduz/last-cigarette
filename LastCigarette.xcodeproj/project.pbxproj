@@ -21,9 +21,6 @@
 		A75C1D041B1735E7008B3956 /* RJNumberOfCigarettesPerPackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75C1D031B1735E7008B3956 /* RJNumberOfCigarettesPerPackTableViewController.swift */; };
 		A773E49F1B1D5B7C0038D718 /* Cigarette.swift in Sources */ = {isa = PBXBuildFile; fileRef = A773E49E1B1D5B7C0038D718 /* Cigarette.swift */; };
 		A77E85CE1B1D8CF800066B0A /* RJInitialSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77E85CD1B1D8CF800066B0A /* RJInitialSettings.swift */; };
-		A77E85EC1B1D9B2E00066B0A /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A77E85EB1B1D9B2E00066B0A /* RealmSwift.framework */; };
-		A77E85ED1B1D9B4E00066B0A /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A77E85EB1B1D9B2E00066B0A /* RealmSwift.framework */; };
-		A77E85EE1B1D9B4E00066B0A /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A77E85EB1B1D9B2E00066B0A /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A77E88351B1EE3E200066B0A /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A77E88241B1EE3E200066B0A /* AbstractActionSheetPicker.m */; };
 		A77E88361B1EE3E200066B0A /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A77E88261B1EE3E200066B0A /* ActionSheetCustomPicker.m */; };
 		A77E88371B1EE3E200066B0A /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A77E88291B1EE3E200066B0A /* ActionSheetDatePicker.m */; };
@@ -32,6 +29,10 @@
 		A77E883A1B1EE3E200066B0A /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A77E88301B1EE3E200066B0A /* ActionSheetStringPicker.m */; };
 		A77E883B1B1EE3E200066B0A /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A77E88321B1EE3E200066B0A /* DistancePickerView.m */; };
 		A77E883C1B1EE3E200066B0A /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A77E88341B1EE3E200066B0A /* SWActionSheet.m */; };
+		A78AAD2A1B568E0B00BFF2D7 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78AAD261B568DDC00BFF2D7 /* Realm.framework */; };
+		A78AAD2B1B568E0B00BFF2D7 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A78AAD261B568DDC00BFF2D7 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A78AAD2C1B568E0B00BFF2D7 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78AAD271B568DDC00BFF2D7 /* RealmSwift.framework */; };
+		A78AAD2D1B568E0B00BFF2D7 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A78AAD271B568DDC00BFF2D7 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A7ADB5BF1B2AB72500879312 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADB5BE1B2AB72500879312 /* Globals.swift */; };
 		A7ADB5C31B2ABBEA00879312 /* RJAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADB5C21B2ABBEA00879312 /* RJAboutViewController.swift */; };
 		A7ADB5C51B2AC2E300879312 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADB5C41B2AC2E300879312 /* Extensions.swift */; };
@@ -57,23 +58,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A77A96101B28524E001D347A /* Copy Frameworks */ = {
+		A78AAD241B568A1000BFF2D7 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-			);
-			name = "Copy Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A7D093771B146ED1003C1EBE /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				A77E85EE1B1D9B4E00066B0A /* RealmSwift.framework in Embed Frameworks */,
+				A78AAD2D1B568E0B00BFF2D7 /* RealmSwift.framework in Embed Frameworks */,
+				A78AAD2B1B568E0B00BFF2D7 /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,7 +87,6 @@
 		A75C1D031B1735E7008B3956 /* RJNumberOfCigarettesPerPackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RJNumberOfCigarettesPerPackTableViewController.swift; sourceTree = "<group>"; };
 		A773E49E1B1D5B7C0038D718 /* Cigarette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cigarette.swift; sourceTree = "<group>"; };
 		A77E85CD1B1D8CF800066B0A /* RJInitialSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RJInitialSettings.swift; path = Singletons/RJInitialSettings.swift; sourceTree = "<group>"; };
-		A77E85EB1B1D9B2E00066B0A /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		A77E88211B1EE3E200066B0A /* CoreActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreActionSheetPicker.h; sourceTree = "<group>"; };
 		A77E88231B1EE3E200066B0A /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
 		A77E88241B1EE3E200066B0A /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
@@ -116,6 +107,8 @@
 		A77E88331B1EE3E200066B0A /* SWActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWActionSheet.h; sourceTree = "<group>"; };
 		A77E88341B1EE3E200066B0A /* SWActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWActionSheet.m; sourceTree = "<group>"; };
 		A77E883E1B1EE43E00066B0A /* LastCigarette-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LastCigarette-Bridging-Header.h"; sourceTree = "<group>"; };
+		A78AAD261B568DDC00BFF2D7 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		A78AAD271B568DDC00BFF2D7 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		A7ADB5BE1B2AB72500879312 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Globals.swift; path = Singletons/Globals.swift; sourceTree = "<group>"; };
 		A7ADB5C21B2ABBEA00879312 /* RJAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RJAboutViewController.swift; sourceTree = "<group>"; };
 		A7ADB5C41B2AC2E300879312 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = "LastCigarette/Custom Classes/Extensions.swift"; sourceTree = "<group>"; };
@@ -139,8 +132,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A77E85ED1B1D9B4E00066B0A /* RealmSwift.framework in Frameworks */,
-				A77E85EC1B1D9B2E00066B0A /* RealmSwift.framework in Frameworks */,
+				A78AAD2C1B568E0B00BFF2D7 /* RealmSwift.framework in Frameworks */,
+				A78AAD2A1B568E0B00BFF2D7 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,17 +208,9 @@
 		A77E85E91B1D9B2E00066B0A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A77E85EA1B1D9B2E00066B0A /* Realm */,
+				A78AAD251B568DDC00BFF2D7 /* Realm */,
 			);
 			path = Frameworks;
-			sourceTree = "<group>";
-		};
-		A77E85EA1B1D9B2E00066B0A /* Realm */ = {
-			isa = PBXGroup;
-			children = (
-				A77E85EB1B1D9B2E00066B0A /* RealmSwift.framework */,
-			);
-			path = Realm;
 			sourceTree = "<group>";
 		};
 		A77E88201B1EE3E200066B0A /* ActionSheetPicker */ = {
@@ -260,6 +245,15 @@
 				A77E88341B1EE3E200066B0A /* SWActionSheet.m */,
 			);
 			path = Pickers;
+			sourceTree = "<group>";
+		};
+		A78AAD251B568DDC00BFF2D7 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				A78AAD261B568DDC00BFF2D7 /* Realm.framework */,
+				A78AAD271B568DDC00BFF2D7 /* RealmSwift.framework */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		A7ADB5C61B2AC2F500879312 /* Custom Classes */ = {
@@ -350,8 +344,7 @@
 				A7D093401B146DBD003C1EBE /* Sources */,
 				A7D093411B146DBD003C1EBE /* Frameworks */,
 				A7D093421B146DBD003C1EBE /* Resources */,
-				A7D093771B146ED1003C1EBE /* Embed Frameworks */,
-				A77A96101B28524E001D347A /* Copy Frameworks */,
+				A78AAD241B568A1000BFF2D7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -391,6 +384,7 @@
 				TargetAttributes = {
 					A7D093431B146DBD003C1EBE = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = CCPE2E3EU8;
 					};
 					A7D0935B1B146DBD003C1EBE = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -525,7 +519,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/LastCIgarette/Frameworks/Realm/RealmSwift.framework/Frameworks",
+					"$(PROJECT_DIR)/LastCigarette/Frameworks/**",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -541,7 +540,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -570,8 +569,13 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/LastCIgarette/Frameworks/Realm/RealmSwift.framework/Frameworks",
+					"$(PROJECT_DIR)/LastCigarette/Frameworks/**",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -580,7 +584,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "LastCigarette/Libraries/LastCigarette-Bridging-Header.h";
@@ -593,18 +597,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/LastCigarette/Frameworks",
+					"$(PROJECT_DIR)/LastCigarette/Frameworks/**",
 					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm/RealmSwift.framework/Frameworks",
-					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm",
+					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm/**",
 					"$(PROJECT_DIR)/LastCigarette/Libraries/ActionSheetPicker/Example",
 					"Projects/Framework-objc",
+					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm",
 				);
 				INFOPLIST_FILE = LastCigarette/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -613,17 +623,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/LastCigarette/Frameworks",
+					"$(PROJECT_DIR)/LastCigarette/Frameworks/**",
 					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm/RealmSwift.framework/Frameworks",
-					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm",
+					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm/**",
 					"$(PROJECT_DIR)/LastCigarette/Libraries/ActionSheetPicker/Example",
 					"Projects/Framework-objc",
+					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm",
 				);
 				INFOPLIST_FILE = LastCigarette/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
