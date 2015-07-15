@@ -146,7 +146,7 @@ SWIFT_CLASS("_TtC10RealmSwift6Object")
 /// Override to designate a property as the primary key for an <code>Object</code> subclass. Only properties of
 /// type String and Int can be designated as the primary key. Primary key
 /// properties enforce uniqueness for each value whenever the property is set which incurs some overhead.
-/// Indexes are created automatically for string primary key properties.
+/// Indexes are created automatically for primary key properties.
 /// :returns: Name of the property designated as the primary key, or <code>nil</code> if the model has no primary key.
 + (NSString * __nullable)primaryKey;
 
@@ -157,7 +157,7 @@ SWIFT_CLASS("_TtC10RealmSwift6Object")
 + (NSArray * __nonnull)ignoredProperties;
 
 /// Return an array of property names for properties which should be indexed. Only supported
-/// for string properties.
+/// for string and int properties.
 /// :returns: <code>Array</code> of property names to index.
 + (NSArray * __nonnull)indexedProperties;
 
