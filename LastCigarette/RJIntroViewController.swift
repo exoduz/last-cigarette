@@ -34,9 +34,9 @@ class RJIntroViewController: UIViewController {
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background-intro.png")!)
         
         //blur
-        var blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
-        var effectView:UIVisualEffectView = UIVisualEffectView (effect: blur)
-        var deviceFrame = CGRectMake(0, 0, Globals.Device.kScreenWidth, Globals.Device.kScreenHeight)
+        let blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        let effectView:UIVisualEffectView = UIVisualEffectView (effect: blur)
+        let deviceFrame = CGRectMake(0, 0, Globals.Device.kScreenWidth, Globals.Device.kScreenHeight)
         effectView.frame = deviceFrame
         
         //check device
@@ -48,20 +48,20 @@ class RJIntroViewController: UIViewController {
         }
         
         //create
-        var customLabel = CustomLabel()
-        var introLabel = customLabel.makeCustomLabel(introLabelFontSize, align: "Center")
+        let customLabel = CustomLabel()
+        let introLabel = customLabel.makeCustomLabel(introLabelFontSize, align: "Center")
         introLabel.text = "Since my last cigarette..."
-        introLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        introLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        let settingsButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-        settingsButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+        let settingsButton = UIButton(type: UIButtonType.System)
+        settingsButton.translatesAutoresizingMaskIntoConstraints = false
         settingsButton.setTitle("Go to Settings", forState: UIControlState.Normal)
         settingsButton.addTarget(self, action: "okButtonTapped", forControlEvents: UIControlEvents.TouchUpInside)
         settingsButton.backgroundColor = UIColor(red: 64/255.0, green: 102.0/255.0, blue: 150.0/255.0, alpha: 0.9)
         settingsButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         
-        let okButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-        okButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+        let okButton = UIButton(type: UIButtonType.System)
+        okButton.translatesAutoresizingMaskIntoConstraints = false
         okButton.setTitle("Gotcha. Let's get started!", forState: UIControlState.Normal)
         okButton.addTarget(self, action: "okButtonTapped", forControlEvents: UIControlEvents.TouchUpInside)
         okButton.backgroundColor = UIColor(red: 21.0/255.0, green: 32.0/255.0, blue: 64.0/255.0, alpha: 0.9)

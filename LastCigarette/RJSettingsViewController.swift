@@ -25,16 +25,20 @@ class RJSettingsViewController: UITableViewController {
         // Do any additional setup after loading the view.
                 
         //get details
-        let realm = Realm()
-        let predicate = NSPredicate(format: "id = %@", "1")
-        var cigarette = realm.objects(Cigarette).filter(predicate)
-        self.quitDate = cigarette[0].quitDate
-        
-        self.labelQuitDate.text = ConvertNSDateToString(cigarette[0].quitDate, "d MMM yyyy h:mm a")
-        self.textFieldNumberSmokedPerDay.text = "\(cigarette[0].smokedPerDay)"
-        self.textFieldCostPerPack.text = "\(cigarette[0].costPerPack)"
-        self.textFieldNumberOfCigarettesPerPack.text = "\(cigarette[0].cigarettesPerPack)"
-        self.labelCurrency.text = "\(cigarette[0].currency)"
+        do {
+            let realm = try Realm()
+            let predicate = NSPredicate(format: "id = %@", "1")
+            let cigarette = realm.objects(Cigarette).filter(predicate)
+            self.quitDate = cigarette[0].quitDate
+            
+            self.labelQuitDate.text = ConvertNSDateToString(cigarette[0].quitDate, format: "d MMM yyyy h:mm a")
+            self.textFieldNumberSmokedPerDay.text = "\(cigarette[0].smokedPerDay)"
+            self.textFieldCostPerPack.text = "\(cigarette[0].costPerPack)"
+            self.textFieldNumberOfCigarettesPerPack.text = "\(cigarette[0].cigarettesPerPack)"
+            self.labelCurrency.text = "\(cigarette[0].currency)"
+        } catch {
+            print(error)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -87,14 +91,18 @@ class RJSettingsViewController: UITableViewController {
         let cigarette = Cigarette()
         cigarette.id = "1"
         cigarette.quitDate = self.quitDate
-        cigarette.smokedPerDay = self.textFieldNumberSmokedPerDay.text.toInt()!
-        cigarette.costPerPack = self.textFieldCostPerPack.text.floatValue
-        cigarette.cigarettesPerPack = self.textFieldNumberOfCigarettesPerPack.text.toInt()!
+        cigarette.smokedPerDay = Int(self.textFieldNumberSmokedPerDay.text!)!
+        cigarette.costPerPack = self.textFieldCostPerPack.text!.floatValue
+        cigarette.cigarettesPerPack = Int(self.textFieldNumberOfCigarettesPerPack.text!)!
         cigarette.currency = self.labelCurrency.text!
         
-        let realm = Realm()
-        realm.write {
-            realm.add(cigarette, update: true)
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(cigarette, update: true)
+            }
+        } catch {
+            print(error)
         }
 
         self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
@@ -109,7 +117,7 @@ class RJSettingsViewController: UITableViewController {
     
     func showQuitDateActionSheet() {
 
-        var datePicker = ActionSheetDatePicker(title: "Choose date", datePickerMode: UIDatePickerMode.DateAndTime, selectedDate: self.quitDate, doneBlock: {
+        let datePicker = ActionSheetDatePicker(title: "Choose date", datePickerMode: UIDatePickerMode.DateAndTime, selectedDate: self.quitDate, doneBlock: {
             picker, value, index in
             
             var convertedDate = ""
@@ -117,7 +125,7 @@ class RJSettingsViewController: UITableViewController {
             //downcast AnyObject to NSDate object
             //http://www.codingexplorer.com/type-casting-swift/
             if let dateObject = value as? NSDate {
-                convertedDate = ConvertNSDateToString(dateObject, "d MMM yyyy h:mm a")
+                convertedDate = ConvertNSDateToString(dateObject, format: "d MMM yyyy h:mm a")
                 self.quitDate = dateObject //set the value of quit date
             }
             self.labelQuitDate.text = convertedDate
@@ -128,8 +136,8 @@ class RJSettingsViewController: UITableViewController {
     }
     
     func showCurrencyActionSheet() {
-        var currencyList = ["$", "£", "€", "¥", "₩", "₽", "Rp", "₨", "฿"]
-        var chosenIndex = find(currencyList, self.labelCurrency.text!)
+        let currencyList = ["$", "£", "€", "¥", "₩", "₽", "Rp", "₨", "฿"]
+        let chosenIndex = currencyList.indexOf((self.labelCurrency.text!))
         
         ActionSheetStringPicker.showPickerWithTitle("Choose a currency", rows: currencyList, initialSelection: chosenIndex!, doneBlock: {
             picker, value, index in

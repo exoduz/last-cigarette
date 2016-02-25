@@ -16,7 +16,7 @@ extension String {
 
 //Convert String to NSDate
 func ConverStringToNSDate(date: String, format: String) -> NSDate {
-    var dateFormatter = NSDateFormatter()
+    let dateFormatter = NSDateFormatter()
     dateFormatter.dateFormat = format
     dateFormatter.timeZone = NSTimeZone()
     
@@ -25,7 +25,7 @@ func ConverStringToNSDate(date: String, format: String) -> NSDate {
 
 //Convert NSDate To String
 func ConvertNSDateToString(date: NSDate, format: String) -> String {
-    var dateFormatter = NSDateFormatter()
+    let dateFormatter = NSDateFormatter()
     dateFormatter.dateFormat = format
     dateFormatter.timeZone = NSTimeZone()
     

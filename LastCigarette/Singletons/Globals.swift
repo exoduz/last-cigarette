@@ -16,8 +16,8 @@ struct Globals {
     }
     
     struct ScreenSize {
-        static let kScreenMaxLength    = max(Globals.Device.kScreenWidth, Globals.Device.kScreenHeight)
-        static let kScreenMinLength    = min(Globals.Device.kScreenWidth, Globals.Device.kScreenHeight)
+        static let kScreenMaxLength = max(Globals.Device.kScreenWidth, Globals.Device.kScreenHeight)
+        static let kScreenMinLength = min(Globals.Device.kScreenWidth, Globals.Device.kScreenHeight)
     }
     
     struct DeviceType {

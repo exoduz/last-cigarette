@@ -12,7 +12,7 @@ class CustomLabel: UILabel {
     
     func makeCustomLabel(fontSize: CGFloat, align: String) -> UILabel {
         
-        var myLabel: UILabel = UILabel()
+        let myLabel: UILabel = UILabel()
         //myLabel.frame = CGRectMake(0, y, Global.Device.screenWidth, 100) //no need to make size as it's set up in addConstraints
         if align == "Right" {
             myLabel.textAlignment = .Right

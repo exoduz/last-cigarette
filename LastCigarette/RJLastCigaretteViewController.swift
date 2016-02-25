@@ -40,7 +40,10 @@ class RJLastCigaretteViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         let defaults = NSUserDefaults.standardUserDefaults()
-
+        defaults.setBool(true, forKey: "HasBeenLaunched")
+        defaults.synchronize()
+        
+        /*
         if !hasApplicationBeenLaunchedBefore() {
             //intro
             let intro = RJIntroViewController()
@@ -49,6 +52,7 @@ class RJLastCigaretteViewController: UIViewController {
             defaults.setBool(true, forKey: "HasBeenLaunched")
             defaults.synchronize()
         }
+        */
         
         /*
         if !hasOptionsBeenPresentedBefore() {
@@ -91,33 +95,33 @@ class RJLastCigaretteViewController: UIViewController {
             quitTimeFontSize = 55
         }
         
-        var customLabel = CustomLabel()
-        var titleLabel = customLabel.makeCustomLabel(20, align: "Center")
+        let customLabel = CustomLabel()
+        let titleLabel = customLabel.makeCustomLabel(20, align: "Center")
         titleLabel.text = "Since my last cigarette..."
-        titleLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         self.quitDateDurationLabel = customLabel.makeCustomLabel(quitDateFontSize, align: "Center")
-        self.quitDateDurationLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.quitDateDurationLabel.translatesAutoresizingMaskIntoConstraints = false
         
         self.quitTimeDurationLabel = customLabel.makeCustomLabel(quitTimeFontSize, align: "Center")
-        self.quitTimeDurationLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.quitTimeDurationLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        var costTitleLabel = customLabel.makeCustomLabel(19, align: "Left")
+        let costTitleLabel = customLabel.makeCustomLabel(19, align: "Left")
         costTitleLabel.text = "Total money saved..."
-        costTitleLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        costTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         self.costLabel = customLabel.makeCustomLabel(32, align: "Left")
-        self.costLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.costLabel.translatesAutoresizingMaskIntoConstraints = false
         
         self.costPerYearLabel = customLabel.makeCustomLabel(20, align: "Left")
-        self.costPerYearLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.costPerYearLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        var numberOfCigarettesTitleLabel = customLabel.makeCustomLabel(19, align: "Left")
+        let numberOfCigarettesTitleLabel = customLabel.makeCustomLabel(19, align: "Left")
         numberOfCigarettesTitleLabel.text = "Cigarettes NOT smoked..."
-        numberOfCigarettesTitleLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        numberOfCigarettesTitleLabel.translatesAutoresizingMaskIntoConstraints = false
 
         self.numberOfCigarettesLabel = customLabel.makeCustomLabel(32, align: "Left")
-        self.numberOfCigarettesLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.numberOfCigarettesLabel.translatesAutoresizingMaskIntoConstraints = false
 
         self.view.addSubview(titleLabel)
         self.view.addSubview(self.quitDateDurationLabel)
@@ -173,15 +177,19 @@ class RJLastCigaretteViewController: UIViewController {
     
     func getData() {
         //get details
-        let realm = Realm()
-        let predicate = NSPredicate(format: "id = %@", "1")
-        var cigarette = realm.objects(Cigarette).filter(predicate)
-        
-        self.quitDate = cigarette[0].quitDate
-        self.smokedPerDay = cigarette[0].smokedPerDay
-        self.costPerPack = cigarette[0].costPerPack
-        self.cigarettesPerPack = cigarette[0].cigarettesPerPack
-        self.currency = cigarette[0].currency
+        do {
+            let realm = try Realm()
+            let predicate = NSPredicate(format: "id = %@", "1")
+            let cigarette = realm.objects(Cigarette).filter(predicate)
+            
+            self.quitDate = cigarette[0].quitDate
+            self.smokedPerDay = cigarette[0].smokedPerDay
+            self.costPerPack = cigarette[0].costPerPack
+            self.cigarettesPerPack = cigarette[0].cigarettesPerPack
+            self.currency = cigarette[0].currency
+        } catch {
+            print(error)
+        }
     }
     
     func calculateAndUpdate() {
@@ -192,10 +200,10 @@ class RJLastCigaretteViewController: UIViewController {
         let secondsInHour = Globals.CalculationConstants.kSecondsInHour
         let secondsInMinute = Globals.CalculationConstants.kSecondsInMinute
         
-        let date = NSDate(); //current UTC time
+        _ = NSDate(); //current UTC time
         let convertedDate:NSDate = self.quitDate
 
-        var elapsedTime = NSDate().timeIntervalSinceDate(convertedDate) //get the interval in seconds between the 2 dates
+        let elapsedTime = NSDate().timeIntervalSinceDate(convertedDate) //get the interval in seconds between the 2 dates
         var years = 0, weeks = 0, days = 0, hours = 0, minutes = 0, seconds = 0
         var remainderWeeks = 0, remainderDays = 0, remainderHours = 0, remainderMinutes = 0, remainderSeconds = 0
         var costPerDay:Float = 0, costPerSecond: Float = 0
@@ -223,7 +231,7 @@ class RJLastCigaretteViewController: UIViewController {
         costPerDay = (self.costPerPack / Float(self.cigarettesPerPack)) * Float(self.smokedPerDay)
         costPerSecond = costPerDay / Float(secondsInDay)
 
-        var numberFormatter = NSNumberFormatter()
+        let numberFormatter = NSNumberFormatter()
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.maximumFractionDigits = 2
         

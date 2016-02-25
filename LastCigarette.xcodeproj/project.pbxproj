@@ -29,22 +29,21 @@
 		A77E883A1B1EE3E200066B0A /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A77E88301B1EE3E200066B0A /* ActionSheetStringPicker.m */; };
 		A77E883B1B1EE3E200066B0A /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A77E88321B1EE3E200066B0A /* DistancePickerView.m */; };
 		A77E883C1B1EE3E200066B0A /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A77E88341B1EE3E200066B0A /* SWActionSheet.m */; };
-		A78AAD2A1B568E0B00BFF2D7 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78AAD261B568DDC00BFF2D7 /* Realm.framework */; };
-		A78AAD2B1B568E0B00BFF2D7 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A78AAD261B568DDC00BFF2D7 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A78AAD2C1B568E0B00BFF2D7 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78AAD271B568DDC00BFF2D7 /* RealmSwift.framework */; };
-		A78AAD2D1B568E0B00BFF2D7 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A78AAD271B568DDC00BFF2D7 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A7ADB5BF1B2AB72500879312 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADB5BE1B2AB72500879312 /* Globals.swift */; };
 		A7ADB5C31B2ABBEA00879312 /* RJAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADB5C21B2ABBEA00879312 /* RJAboutViewController.swift */; };
 		A7ADB5C51B2AC2E300879312 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADB5C41B2AC2E300879312 /* Extensions.swift */; };
 		A7D0934A1B146DBD003C1EBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D093491B146DBD003C1EBE /* AppDelegate.swift */; };
 		A7D0934D1B146DBD003C1EBE /* LastCigarette.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A7D0934B1B146DBD003C1EBE /* LastCigarette.xcdatamodeld */; };
-		A7D093541B146DBD003C1EBE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7D093531B146DBD003C1EBE /* Images.xcassets */; };
-		A7D093571B146DBD003C1EBE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7D093551B146DBD003C1EBE /* LaunchScreen.xib */; };
 		A7D093631B146DBD003C1EBE /* LastCigaretteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D093621B146DBD003C1EBE /* LastCigaretteTests.swift */; };
 		A7D0936E1B146DFD003C1EBE /* RJLastCigaretteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D0936C1B146DFD003C1EBE /* RJLastCigaretteViewController.swift */; };
 		A7D0936F1B146DFD003C1EBE /* RJSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D0936D1B146DFD003C1EBE /* RJSettingsViewController.swift */; };
 		A7D093711B146E33003C1EBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7D093701B146E33003C1EBE /* Main.storyboard */; };
 		A7D093791B159EAD003C1EBE /* RJIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D093781B159EAD003C1EBE /* RJIntroViewController.swift */; };
+		C917E0B31C7FB51900DC378D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78AAD261B568DDC00BFF2D7 /* Realm.framework */; };
+		C917E0B41C7FB51900DC378D /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A78AAD261B568DDC00BFF2D7 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C917E0B51C7FB51900DC378D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78AAD271B568DDC00BFF2D7 /* RealmSwift.framework */; };
+		C917E0B61C7FB51900DC378D /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A78AAD271B568DDC00BFF2D7 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C917E0BA1C7FB73B00DC378D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C917E0B91C7FB73B00DC378D /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,14 +57,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A78AAD241B568A1000BFF2D7 /* Embed Frameworks */ = {
+		C9896DE81C5892AA0037BAF2 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A78AAD2D1B568E0B00BFF2D7 /* RealmSwift.framework in Embed Frameworks */,
-				A78AAD2B1B568E0B00BFF2D7 /* Realm.framework in Embed Frameworks */,
+				C917E0B61C7FB51900DC378D /* RealmSwift.framework in Embed Frameworks */,
+				C917E0B41C7FB51900DC378D /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,8 +115,6 @@
 		A7D093481B146DBD003C1EBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7D093491B146DBD003C1EBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7D0934C1B146DBD003C1EBE /* LastCigarette.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LastCigarette.xcdatamodel; sourceTree = "<group>"; };
-		A7D093531B146DBD003C1EBE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		A7D093561B146DBD003C1EBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A7D0935C1B146DBD003C1EBE /* LastCigaretteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LastCigaretteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7D093611B146DBD003C1EBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7D093621B146DBD003C1EBE /* LastCigaretteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastCigaretteTests.swift; sourceTree = "<group>"; };
@@ -125,6 +122,7 @@
 		A7D0936D1B146DFD003C1EBE /* RJSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RJSettingsViewController.swift; sourceTree = "<group>"; };
 		A7D093701B146E33003C1EBE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A7D093781B159EAD003C1EBE /* RJIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RJIntroViewController.swift; sourceTree = "<group>"; };
+		C917E0B91C7FB73B00DC378D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,8 +130,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A78AAD2C1B568E0B00BFF2D7 /* RealmSwift.framework in Frameworks */,
-				A78AAD2A1B568E0B00BFF2D7 /* Realm.framework in Frameworks */,
+				C917E0B31C7FB51900DC378D /* Realm.framework in Frameworks */,
+				C917E0B51C7FB51900DC378D /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,8 +294,7 @@
 				A75C1D031B1735E7008B3956 /* RJNumberOfCigarettesPerPackTableViewController.swift */,
 				A773E49E1B1D5B7C0038D718 /* Cigarette.swift */,
 				A7D093701B146E33003C1EBE /* Main.storyboard */,
-				A7D093531B146DBD003C1EBE /* Images.xcassets */,
-				A7D093551B146DBD003C1EBE /* LaunchScreen.xib */,
+				C917E0B91C7FB73B00DC378D /* Images.xcassets */,
 				A7D0934B1B146DBD003C1EBE /* LastCigarette.xcdatamodeld */,
 				A7074C831B2825DA00BD2960 /* Resources */,
 				A77E85CF1B1D8D1400066B0A /* Singletons */,
@@ -344,7 +341,7 @@
 				A7D093401B146DBD003C1EBE /* Sources */,
 				A7D093411B146DBD003C1EBE /* Frameworks */,
 				A7D093421B146DBD003C1EBE /* Resources */,
-				A78AAD241B568A1000BFF2D7 /* Embed Frameworks */,
+				C9896DE81C5892AA0037BAF2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -379,7 +376,9 @@
 		A7D0933C1B146DBD003C1EBE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Robin Roy Julius";
 				TargetAttributes = {
 					A7D093431B146DBD003C1EBE = {
@@ -420,13 +419,12 @@
 				A7074C8F1B2825DA00BD2960 /* background@3x.png in Resources */,
 				A7074C921B2825DA00BD2960 /* gear-icon@3x.png in Resources */,
 				A7D093711B146E33003C1EBE /* Main.storyboard in Resources */,
-				A7D093571B146DBD003C1EBE /* LaunchScreen.xib in Resources */,
 				A749A6621B3BFDD3003935FC /* background-intro.png in Resources */,
 				A749A6641B3BFDD3003935FC /* background-intro@3x.png in Resources */,
 				A7074C8D1B2825DA00BD2960 /* background.png in Resources */,
 				A7074C901B2825DA00BD2960 /* gear-icon.png in Resources */,
+				C917E0BA1C7FB73B00DC378D /* Images.xcassets in Resources */,
 				A7074C8E1B2825DA00BD2960 /* background@2x.png in Resources */,
-				A7D093541B146DBD003C1EBE /* Images.xcassets in Resources */,
 				A7074C911B2825DA00BD2960 /* gear-icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,17 +485,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		A7D093551B146DBD003C1EBE /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A7D093561B146DBD003C1EBE /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		A7D093641B146DBD003C1EBE /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -521,6 +508,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/LastCIgarette/Frameworks/Realm/RealmSwift.framework/Frameworks",
 					"$(PROJECT_DIR)/LastCigarette/Frameworks/**",
@@ -596,6 +584,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -607,10 +596,12 @@
 					"$(PROJECT_DIR)/LastCigarette/Libraries/ActionSheetPicker/Example",
 					"Projects/Framework-objc",
 					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = LastCigarette/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Robin-Roy-Julius.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -622,6 +613,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -633,10 +625,12 @@
 					"$(PROJECT_DIR)/LastCigarette/Libraries/ActionSheetPicker/Example",
 					"Projects/Framework-objc",
 					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = LastCigarette/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Robin-Roy-Julius.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -657,6 +651,7 @@
 				);
 				INFOPLIST_FILE = LastCigaretteTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Robin-Roy-Julius.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LastCigarette.app/LastCigarette";
 			};
@@ -672,6 +667,7 @@
 				);
 				INFOPLIST_FILE = LastCigaretteTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Robin-Roy-Julius.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LastCigarette.app/LastCigarette";
 			};

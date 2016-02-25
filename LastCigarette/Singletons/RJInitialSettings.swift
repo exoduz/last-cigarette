@@ -33,22 +33,26 @@ func hasOptionsBeenPresentedBefore() -> Bool {
 }
 
 func initialPopulate() {
-    let realm = Realm()
-    let predicate = NSPredicate(format: "id = %@", "1")
-    var cigarette = realm.objects(Cigarette).filter(predicate)
-    
-    if Int(cigarette.count) == 0 {
-        var initialCigarette = Cigarette()
-        initialCigarette.id = "1"
-        initialCigarette.quitDate = NSDate()
-        initialCigarette.smokedPerDay = 0
-        initialCigarette.costPerPack = 0.0
-        initialCigarette.cigarettesPerPack = 0
-        initialCigarette.currency = "$"
+    do {
+        let realm = try Realm()
+        let predicate = NSPredicate(format: "id = %@", "1")
+        let cigarette = realm.objects(Cigarette).filter(predicate)
         
-        // Save initial object
-        realm.beginWrite()
-        realm.add(initialCigarette)
-        realm.commitWrite()
+        if Int(cigarette.count) == 0 {
+            let initialCigarette = Cigarette()
+            initialCigarette.id = "1"
+            initialCigarette.quitDate = NSDate()
+            initialCigarette.smokedPerDay = 0
+            initialCigarette.costPerPack = 0.0
+            initialCigarette.cigarettesPerPack = 0
+            initialCigarette.currency = "$"
+            
+            // Save initial object
+            realm.beginWrite()
+            realm.add(initialCigarette)
+            try realm.commitWrite()
+        }
+    } catch {
+        print(error)
     }
 }
