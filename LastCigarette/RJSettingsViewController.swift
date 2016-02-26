@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import MessageUI
 import RealmSwift
 
-class RJSettingsViewController: UITableViewController {
+class RJSettingsViewController: UITableViewController, MFMailComposeViewControllerDelegate {
+    
+    let appId: String = Globals.App.kAppId
+    let appVersion: String = Globals.App.kVersion
+    let appBuild: String = Globals.App.kBuild
+
     
     var quitDate: NSDate = NSDate()
     
@@ -60,20 +66,31 @@ class RJSettingsViewController: UITableViewController {
         //respond to cell tap
         if indexPath.section == 0 && indexPath.row == 0 {
             showQuitDateActionSheet()
-        } else if indexPath.section == 0 && indexPath.row == 1 {
+        } else if indexPath.section == 0 && indexPath.row == 1 { //number of cigarettes smoked
             self.textFieldNumberSmokedPerDay.resignFirstResponder()
             self.textFieldNumberSmokedPerDay.keyboardType = UIKeyboardType.NumberPad
             self.textFieldNumberSmokedPerDay.becomeFirstResponder()
-        } else if indexPath.section == 1 && indexPath.row == 0 {
+        } else if indexPath.section == 1 && indexPath.row == 0 { //cost per pack
             self.textFieldCostPerPack.resignFirstResponder()
             self.textFieldCostPerPack.keyboardType = UIKeyboardType.DecimalPad
             self.textFieldCostPerPack.becomeFirstResponder()
-        } else if indexPath.section == 1 && indexPath.row == 1 {
+        } else if indexPath.section == 1 && indexPath.row == 1 { //number of cigarettes per pack
             self.textFieldNumberOfCigarettesPerPack.resignFirstResponder()
             self.textFieldNumberOfCigarettesPerPack.keyboardType = UIKeyboardType.NumberPad
             self.textFieldNumberOfCigarettesPerPack.becomeFirstResponder()
-        } else if indexPath.section == 1 && indexPath.row == 2 {
+        } else if indexPath.section == 1 && indexPath.row == 2 { //currency
             showCurrencyActionSheet()
+        } else if indexPath.section == 2 && indexPath.row == 0 { //about
+        } else if indexPath.section == 2 && indexPath.row == 1 { //rate on app store
+            let url = NSURL(string: "itms-apps://itunes.apple.com/app/id" + appId)
+            UIApplication.sharedApplication().openURL(url!);
+        } else if indexPath.section == 2 && indexPath.row == 2 { //feedback
+            let mailComposer = configureMailComposeViewController()
+            if MFMailComposeViewController.canSendMail() {
+                self.presentViewController(mailComposer, animated: true, completion: nil)
+            } else {
+                self.sendMailError()
+            }
         } else {
             self.labelQuitDate.resignFirstResponder()
             self.textFieldNumberSmokedPerDay.resignFirstResponder()
@@ -147,4 +164,36 @@ class RJSettingsViewController: UITableViewController {
         }, cancelBlock: { ActionStringCancelBlock in return }, origin: self.view)
     }
     
+    func configureMailComposeViewController() -> MFMailComposeViewController {
+        let mail = MFMailComposeViewController()
+        mail.mailComposeDelegate = self
+        
+        mail.setToRecipients(["me@robinjulius.com"])
+        mail.setSubject("Feedback/bug from Last Cigarette app")
+        
+        let iOSVersionNumber = Globals.Version.kiOSVersionNumber
+        let device = UIDevice.currentDevice().modelName
+        let body = "\n\n\n---\niOS Version: \(iOSVersionNumber)\nDevice: \(device)\nApp Version: \(appVersion + " b" + appBuild)"
+        mail.setMessageBody(body, isHTML: false)
+        
+        return mail
+    }
+    
+    func sendMailError() {
+        let sendMailErrorAlert = UIAlertView(title: "Could not send email", message: "There was an error sending your email. Please check your email settings and try again.", delegate: self, cancelButtonTitle: "OK")
+        sendMailErrorAlert.show()
+    }
+    
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        switch result.rawValue {
+        case MFMailComposeResultCancelled.rawValue:
+            print("Cancelled")
+        case MFMailComposeResultSent.rawValue:
+            print("Mail Sent")
+        default:
+            break
+        }
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }
