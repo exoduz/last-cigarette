@@ -81,6 +81,9 @@ class RJSettingsViewController: UITableViewController, MFMailComposeViewControll
         } else if indexPath.section == 1 && indexPath.row == 2 { //currency
             showCurrencyActionSheet()
         } else if indexPath.section == 2 && indexPath.row == 0 { //about
+            if let url = NSURL(string: "http://robinjulius.com") {
+                UIApplication.sharedApplication().openURL(url)
+            }
         } else if indexPath.section == 2 && indexPath.row == 1 { //rate on app store
             let url = NSURL(string: "itms-apps://itunes.apple.com/app/id" + appId)
             UIApplication.sharedApplication().openURL(url!);
