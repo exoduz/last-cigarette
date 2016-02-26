@@ -1,0 +1,6 @@
+framework module Pods_LastCigarette {
+  umbrella header "Pods-LastCigarette-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 import RealmSwift
+import Crashlytics
+import Fabric
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if !hasApplicationBeenLaunchedBefore() {
             initialPopulate()
         }
+        
+        Fabric.with([Crashlytics.self])
         
         return true
     }
