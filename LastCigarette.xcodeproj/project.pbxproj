@@ -681,14 +681,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LastCigarette/Frameworks/**",
-					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm/RealmSwift.framework/Frameworks",
 					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm/**",
-					"$(PROJECT_DIR)/LastCigarette/Libraries/ActionSheetPicker/Example",
-					"Projects/Framework-objc",
-					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm/Fabric",
-					"$(PROJECT_DIR)/LastCigarette/Frameworks/Fabric",
+					"$(PROJECT_DIR)/LastCigarette/Libraries/**",
 				);
 				INFOPLIST_FILE = LastCigarette/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
@@ -717,14 +711,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LastCigarette/Frameworks/**",
-					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm/RealmSwift.framework/Frameworks",
 					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm/**",
-					"$(PROJECT_DIR)/LastCigarette/Libraries/ActionSheetPicker/Example",
-					"Projects/Framework-objc",
-					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/LastCigarette/Frameworks/Realm/Fabric",
-					"$(PROJECT_DIR)/LastCigarette/Frameworks/Fabric",
+					"$(PROJECT_DIR)/LastCigarette/Libraries/**",
 				);
 				INFOPLIST_FILE = LastCigarette/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
