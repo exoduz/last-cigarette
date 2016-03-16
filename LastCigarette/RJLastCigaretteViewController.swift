@@ -42,29 +42,6 @@ class RJLastCigaretteViewController: UIViewController {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setBool(true, forKey: "HasBeenLaunched")
         defaults.synchronize()
-        
-        /*
-        if !hasApplicationBeenLaunchedBefore() {
-            //intro
-            let intro = RJIntroViewController()
-            self.presentViewController(intro, animated: true, completion: nil)
-            
-            defaults.setBool(true, forKey: "HasBeenLaunched")
-            defaults.synchronize()
-        }
-        */
-        
-        /*
-        if !hasOptionsBeenPresentedBefore() {
-            //settings
-            var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            var settings: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("SettingsNavigationController") as! UINavigationController
-            self.presentViewController(settings, animated: true, completion: nil)
-            
-            //defaults.setBool(true, forKey: "HasOptionsBeenPresented")
-            //defaults.synchronize()
-        }
-        */
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -181,7 +158,7 @@ class RJLastCigaretteViewController: UIViewController {
             let realm = try Realm()
             let predicate = NSPredicate(format: "id = %@", "1")
             let cigarette = realm.objects(Cigarette).filter(predicate)
-            
+
             self.quitDate = cigarette[0].quitDate
             self.smokedPerDay = cigarette[0].smokedPerDay
             self.costPerPack = cigarette[0].costPerPack

@@ -17,9 +17,11 @@ class RJSettingsViewController: UITableViewController, MFMailComposeViewControll
     let appBuild: String = Globals.App.kBuild
 
     
-    var quitDate: NSDate = NSDate()
+    var quitDate: String = ""
+    var quitTime: String = ""
     
     @IBOutlet weak var labelQuitDate: UILabel!
+    @IBOutlet weak var labelQuitTime: UILabel!
     @IBOutlet weak var textFieldNumberSmokedPerDay: UITextField!
     @IBOutlet weak var textFieldCostPerPack: UITextField!
     @IBOutlet weak var textFieldNumberOfCigarettesPerPack: UITextField!
@@ -35,9 +37,11 @@ class RJSettingsViewController: UITableViewController, MFMailComposeViewControll
             let realm = try Realm()
             let predicate = NSPredicate(format: "id = %@", "1")
             let cigarette = realm.objects(Cigarette).filter(predicate)
-            self.quitDate = cigarette[0].quitDate
+            self.quitDate = ConvertNSDateToString(cigarette[0].quitDate, format: "d MMM yyyy")
+            self.quitTime = ConvertNSDateToString(cigarette[0].quitDate, format: "h:mm a")
             
-            self.labelQuitDate.text = ConvertNSDateToString(cigarette[0].quitDate, format: "d MMM yyyy h:mm a")
+            self.labelQuitDate.text = ConvertNSDateToString(cigarette[0].quitDate, format: "d MMM yyyy")
+            self.labelQuitTime.text = ConvertNSDateToString(cigarette[0].quitDate, format: "h:mm a")
             self.textFieldNumberSmokedPerDay.text = "\(cigarette[0].smokedPerDay)"
             self.textFieldCostPerPack.text = "\(cigarette[0].costPerPack)"
             self.textFieldNumberOfCigarettesPerPack.text = "\(cigarette[0].cigarettesPerPack)"
@@ -56,6 +60,7 @@ class RJSettingsViewController: UITableViewController, MFMailComposeViewControll
         super.viewWillDisappear(true)
         
         self.labelQuitDate.resignFirstResponder()
+        self.labelQuitTime.resignFirstResponder()
         self.textFieldNumberSmokedPerDay.resignFirstResponder()
         self.textFieldCostPerPack.resignFirstResponder()
         self.textFieldNumberOfCigarettesPerPack.resignFirstResponder()
@@ -64,9 +69,17 @@ class RJSettingsViewController: UITableViewController, MFMailComposeViewControll
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //respond to cell tap
-        if indexPath.section == 0 && indexPath.row == 0 {
+        if indexPath.section == 0 && indexPath.row == 0 { //date quit
+            self.textFieldNumberSmokedPerDay.resignFirstResponder()
+            self.textFieldCostPerPack.resignFirstResponder()
+            self.textFieldNumberOfCigarettesPerPack.resignFirstResponder()
             showQuitDateActionSheet()
-        } else if indexPath.section == 0 && indexPath.row == 1 { //number of cigarettes smoked
+        } else if indexPath.section == 0 && indexPath.row == 1 { //time quit
+            self.textFieldNumberSmokedPerDay.resignFirstResponder()
+            self.textFieldCostPerPack.resignFirstResponder()
+            self.textFieldNumberOfCigarettesPerPack.resignFirstResponder()
+            showQuitTimeActionSheet()
+        } else if indexPath.section == 0 && indexPath.row == 2 { //number of cigarettes smoked
             self.textFieldNumberSmokedPerDay.resignFirstResponder()
             self.textFieldNumberSmokedPerDay.keyboardType = UIKeyboardType.NumberPad
             self.textFieldNumberSmokedPerDay.becomeFirstResponder()
@@ -79,15 +92,30 @@ class RJSettingsViewController: UITableViewController, MFMailComposeViewControll
             self.textFieldNumberOfCigarettesPerPack.keyboardType = UIKeyboardType.NumberPad
             self.textFieldNumberOfCigarettesPerPack.becomeFirstResponder()
         } else if indexPath.section == 1 && indexPath.row == 2 { //currency
+            self.textFieldNumberSmokedPerDay.resignFirstResponder()
+            self.textFieldCostPerPack.resignFirstResponder()
+            self.textFieldNumberOfCigarettesPerPack.resignFirstResponder()
             showCurrencyActionSheet()
         } else if indexPath.section == 2 && indexPath.row == 0 { //about
+            self.textFieldNumberSmokedPerDay.resignFirstResponder()
+            self.textFieldCostPerPack.resignFirstResponder()
+            self.textFieldNumberOfCigarettesPerPack.resignFirstResponder()
+            
             if let url = NSURL(string: "http://robinjulius.com") {
                 UIApplication.sharedApplication().openURL(url)
             }
         } else if indexPath.section == 2 && indexPath.row == 1 { //rate on app store
+            self.textFieldNumberSmokedPerDay.resignFirstResponder()
+            self.textFieldCostPerPack.resignFirstResponder()
+            self.textFieldNumberOfCigarettesPerPack.resignFirstResponder()
+            
             let url = NSURL(string: "itms-apps://itunes.apple.com/app/id" + appId)
             UIApplication.sharedApplication().openURL(url!);
         } else if indexPath.section == 2 && indexPath.row == 2 { //feedback
+            self.textFieldNumberSmokedPerDay.resignFirstResponder()
+            self.textFieldCostPerPack.resignFirstResponder()
+            self.textFieldNumberOfCigarettesPerPack.resignFirstResponder()
+            
             let mailComposer = configureMailComposeViewController()
             if MFMailComposeViewController.canSendMail() {
                 self.presentViewController(mailComposer, animated: true, completion: nil)
@@ -96,6 +124,7 @@ class RJSettingsViewController: UITableViewController, MFMailComposeViewControll
             }
         } else {
             self.labelQuitDate.resignFirstResponder()
+            self.labelQuitTime.resignFirstResponder()
             self.textFieldNumberSmokedPerDay.resignFirstResponder()
             self.textFieldCostPerPack.resignFirstResponder()
             self.textFieldNumberOfCigarettesPerPack.resignFirstResponder()
@@ -110,7 +139,12 @@ class RJSettingsViewController: UITableViewController, MFMailComposeViewControll
         //save
         let cigarette = Cigarette()
         cigarette.id = "1"
-        cigarette.quitDate = self.quitDate
+        
+        //convert both quit date and time to NSDate
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "d MMM yyyy h:mm a"
+        cigarette.quitDate = dateFormatter.dateFromString("\(self.quitDate) \(self.quitTime)")!
+
         cigarette.smokedPerDay = Int(self.textFieldNumberSmokedPerDay.text!)!
         cigarette.costPerPack = self.textFieldCostPerPack.text!.floatValue
         cigarette.cigarettesPerPack = Int(self.textFieldNumberOfCigarettesPerPack.text!)!
@@ -136,8 +170,9 @@ class RJSettingsViewController: UITableViewController, MFMailComposeViewControll
     }
     
     func showQuitDateActionSheet() {
-
-        let datePicker = ActionSheetDatePicker(title: "Choose date", datePickerMode: UIDatePickerMode.DateAndTime, selectedDate: self.quitDate, doneBlock: {
+        
+        let convertedDate = ConverStringToNSDate(self.quitDate, format: "d MMM yyyy")
+        let datePicker = ActionSheetDatePicker(title: "Choose date", datePickerMode: UIDatePickerMode.Date, selectedDate: convertedDate, doneBlock: {
             picker, value, index in
             
             var convertedDate = ""
@@ -145,14 +180,34 @@ class RJSettingsViewController: UITableViewController, MFMailComposeViewControll
             //downcast AnyObject to NSDate object
             //http://www.codingexplorer.com/type-casting-swift/
             if let dateObject = value as? NSDate {
-                convertedDate = ConvertNSDateToString(dateObject, format: "d MMM yyyy h:mm a")
-                self.quitDate = dateObject //set the value of quit date
+                convertedDate = ConvertNSDateToString(dateObject, format: "d MMM yyyy")
+                self.quitDate = ConvertNSDateToString(dateObject, format: "d MMM yyyy")  //set the value of quit date
             }
             self.labelQuitDate.text = convertedDate
         }, cancelBlock: { ActionStringCancelBlock in return }, origin: self.view)
         
         datePicker.maximumDate = NSDate()
         datePicker.showActionSheetPicker()
+    }
+    
+    func showQuitTimeActionSheet() {
+        
+        let convertedTime = ConverStringToNSDate(self.quitTime, format: "h:mm a")
+        let timePicker = ActionSheetDatePicker(title: "Choose time", datePickerMode: UIDatePickerMode.Time, selectedDate: convertedTime, doneBlock: {
+            picker, value, index in
+            
+            var convertedTime = ""
+            
+            //downcast AnyObject to NSDate object
+            //http://www.codingexplorer.com/type-casting-swift/
+            if let timeObject = value as? NSDate {
+                convertedTime = ConvertNSDateToString(timeObject, format: "h:mm a")
+                self.quitTime = ConvertNSDateToString(timeObject, format: "h:mm a") //set the value of quit time
+            }
+            self.labelQuitTime.text = convertedTime
+        }, cancelBlock: { ActionStringCancelBlock in return }, origin: self.view)
+        
+        timePicker.showActionSheetPicker()
     }
     
     func showCurrencyActionSheet() {
